@@ -1,0 +1,13 @@
+project_root/
+│
+├── app/
+│   ├── main.py
+│   ├── recommendation_model.py
+│   └── tv_show_recommender.py
+│
+├── data/
+│   ├── SpakMobileApi.reviews.csv
+│   └── SpakMobileApi.reviewshows.csv
+│   └── SpakMobileApi.shows.csv
+│
+├── requirements.txt

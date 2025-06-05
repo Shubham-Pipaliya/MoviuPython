@@ -1,0 +1,3852 @@
+[{
+  "_id": {
+    "$oid": "67977a47dee8c7cd3de202d3"
+  },
+  "movie": {
+    "$oid": "67927323dee8c7cd3ddb944b"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Nice movie",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-27T12:21:27.187Z"
+  },
+  "__v": 36,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "6819fab1a4a6913903f54343"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67983fe1dee8c7cd3de293e5"
+  },
+  "movie": {
+    "$oid": "6784ebfa8aa424880ac501d7"
+  },
+  "user": {
+    "$oid": "67978394dee8c7cd3de2331b"
+  },
+  "rating": 5,
+  "review_text": "The Shawshank Redemption is not just a movie; it’s an experience that lingers in your heart long after the credits roll. It is a story of hope, friendship, and the unyielding resilience of the human spirit. From the very first scene, you are drawn into the somber yet strangely captivating world of Shawshank Prison, where despair looms large, but glimmers of humanity and hope shine through. Tim Robbins as Andy Dufresne is remarkable, embodying quiet strength and determination, while Morgan Freeman’s portrayal of Red is nothing short of legendary, delivering a performance full of wisdom, warmth, and authenticity.\n\nEvery frame of this masterpiece is carefully crafted, and every line of dialogue carries depth and meaning. The bond between Andy and Red is the soul of the film, reminding us of the power of connection even in the darkest places. The iconic scene of Andy standing in the rain, arms outstretched in triumph, is one of the most liberating and hopeful moments ever captured on film. It’s a testament to the idea that hope is not just an emotion—it’s a force strong enough to break even the toughest chains.\n\nThe Shawshank Redemption is more than a story about prison; it’s about the resilience of the human spirit and the transformative power of hope and kindness. It’s a film that teaches us that no matter how bleak life may seem, there’s always a way to rise above and reclaim your freedom—whether it’s physical, emotional, or spiritual. A 5 out of 5 in every possible way, it’s a timeless classic that touches your soul and inspires you to see the world differently.",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T02:24:33.925Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67984043dee8c7cd3de29405"
+  },
+  "movie": {
+    "$oid": "67925f1cdee8c7cd3ddb4e2a"
+  },
+  "user": {
+    "$oid": "67978394dee8c7cd3de2331b"
+  },
+  "rating": 5,
+  "review_text": "Hera Pheri is nothing short of a timeless gem in Indian cinema. With its perfect blend of comedy, chaos, and unforgettable characters, it has earned a special place in the hearts of millions. The chemistry between Raju, Shyam, and Baburao is pure magic, with Akshay Kumar, Suniel Shetty, and Paresh Rawal delivering performances that are iconic to this day. Baburao’s quirky dialogues and mannerisms, coupled with the hilarious situations the trio finds themselves in, make every scene a laugh riot.\n\nWhat makes Hera Pheri truly special is its simplicity and relatability. It’s a story of ordinary people with extraordinary dreams, trying to make their way in a world filled with mischief and madness. Despite the comedy, the film also has heart, showcasing friendship, struggle, and the little triumphs of life. The laugh-out-loud moments are balanced beautifully with an undercurrent of emotion that tugs at your heart.\n\nEven after so many years, Hera Pheri remains a cult classic, rewatched and quoted endlessly by fans of all ages. It’s a film that brings joy, nostalgia, and pure entertainment every single time. A well-deserved 5 out of 5 for this unforgettable masterpiece that continues to make us laugh like it’s the first time!",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T02:26:11.636Z"
+  },
+  "__v": 1,
+  "comments": [],
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "679899c8dee8c7cd3de3cb98"
+  },
+  "movie": {
+    "$oid": "67927181dee8c7cd3ddb9012"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T08:48:08.096Z"
+  },
+  "__v": 1,
+  "comments": [],
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "679899efdee8c7cd3de3cbb6"
+  },
+  "movie": {
+    "$oid": "67926e67dee8c7cd3ddb7ca8"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Nice Movie Phir Hera Pheri",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T08:48:47.333Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67989a36dee8c7cd3de3cbc9"
+  },
+  "movie": {
+    "$oid": "679262bbdee8c7cd3ddb6132"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Hungama is nice movie. I am want to see again and again",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T08:49:58.443Z"
+  },
+  "__v": 3,
+  "comments": [
+    {
+      "$oid": "67b8453fe31cabd7a2e4e85b"
+    },
+    {
+      "$oid": "67b9c038e31cabd7a2ee61e3"
+    }
+  ],
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67989a4ddee8c7cd3de3cbdb"
+  },
+  "movie": {
+    "$oid": "679262bbdee8c7cd3ddb6132"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Hungama is awesome movie",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T08:50:21.566Z"
+  },
+  "__v": 1,
+  "comments": [],
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67989cd9dee8c7cd3de3d6f2"
+  },
+  "movie": {
+    "$oid": "67927323dee8c7cd3ddb944b"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Ajab Movie",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T09:01:13.700Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67989efbdee8c7cd3de3f853"
+  },
+  "movie": {
+    "$oid": "6790e923366ba38eccfa008d"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "what a show on scam….",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T09:10:19.943Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67989f66dee8c7cd3de407ae"
+  },
+  "movie": {
+    "$oid": "6790fda5366ba38eccfa973b"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie on sagai",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T09:12:06.633Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6798a02bdee8c7cd3de41118"
+  },
+  "movie": {
+    "$oid": "67925f1cdee8c7cd3ddb4e2a"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a Movie",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T09:15:23.529Z"
+  },
+  "__v": 1,
+  "comments": [],
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6798a36adee8c7cd3de43af6"
+  },
+  "movie": {
+    "$oid": "678b387a231a47ce4666b189"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie omkara ",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T09:29:14.479Z"
+  },
+  "__v": 1,
+  "comments": [
+    {
+      "$oid": "682717768d4c6cdbe9670337"
+    }
+  ],
+  "likes": []
+},
+{
+  "_id": {
+    "$oid": "6798a443dee8c7cd3de448cf"
+  },
+  "movie": {
+    "$oid": "67927323dee8c7cd3ddb944b"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a Movie Ajab Ajay",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T09:32:51.920Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6798a967dee8c7cd3de466e9"
+  },
+  "movie": {
+    "$oid": "67927323dee8c7cd3ddb944b"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Ajab 4",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T09:54:47.888Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6798ac42dee8c7cd3de46e15"
+  },
+  "movie": {
+    "$oid": "67927323dee8c7cd3ddb944b"
+  },
+  "user": {
+    "$oid": "67978394dee8c7cd3de2331b"
+  },
+  "rating": 3,
+  "review_text": "this is a decent movie",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T10:06:58.987Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67990446dee8c7cd3de5718c"
+  },
+  "movie": {
+    "$oid": "67926e67dee8c7cd3ddb7ca8"
+  },
+  "user": {
+    "$oid": "6794ea3adee8c7cd3ddde621"
+  },
+  "rating": 5,
+  "review_text": "Uthale re baba 😂",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-28T16:22:30.561Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "679a0d5adee8c7cd3de5be12"
+  },
+  "movie": {
+    "$oid": "6798e89fdee8c7cd3de557d0"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-29T11:13:30.516Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "679a235cdee8c7cd3de66367"
+  },
+  "movie": {
+    "$oid": "6798e89fdee8c7cd3de557d0"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-29T12:47:24.022Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "679a2447dee8c7cd3de66acb"
+  },
+  "movie": {
+    "$oid": "6798e89fdee8c7cd3de557d0"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-29T12:51:19.399Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "679a275ddee8c7cd3de67562"
+  },
+  "movie": {
+    "$oid": "6798e75fdee8c7cd3de54f28"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-29T13:04:29.022Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "679a27c4dee8c7cd3de67599"
+  },
+  "movie": {
+    "$oid": "6798e89fdee8c7cd3de557d0"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-29T13:06:12.084Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "679a28a0dee8c7cd3de67d0a"
+  },
+  "movie": {
+    "$oid": "6798e89fdee8c7cd3de557d0"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Kya bat",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-29T13:09:52.297Z"
+  },
+  "__v": 1,
+  "comments": [],
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "679a28afdee8c7cd3de67d2e"
+  },
+  "movie": {
+    "$oid": "6798e75fdee8c7cd3de54f28"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-29T13:10:07.716Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "679a28f1dee8c7cd3de6849b"
+  },
+  "movie": {
+    "$oid": "6798e75fdee8c7cd3de54f28"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 2,
+  "review_text": "A",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-29T13:11:13.164Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "679a29a3dee8c7cd3de684e9"
+  },
+  "movie": {
+    "$oid": "6798e75fdee8c7cd3de54f28"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "DD",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-29T13:14:11.238Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "679a29d9dee8c7cd3de68c55"
+  },
+  "movie": {
+    "$oid": "6798e45ddee8c7cd3de54682"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Sss",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-29T13:15:05.558Z"
+  },
+  "__v": 1,
+  "comments": [],
+  "likes": [
+    {
+      "$oid": "67cfb9de9d1b7a54e6159668"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "679a29ebdee8c7cd3de68c7a"
+  },
+  "movie": {
+    "$oid": "6798e45ddee8c7cd3de54682"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Www",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-29T13:15:23.091Z"
+  },
+  "__v": 12,
+  "comments": [],
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    },
+    {
+      "$oid": "67cfb9de9d1b7a54e6159668"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "679b442edee8c7cd3dea78f9"
+  },
+  "movie": {
+    "$oid": "679a3a22dee8c7cd3de6df71"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What movie Dabanga",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-30T09:19:42.222Z"
+  },
+  "__v": 1,
+  "comments": [],
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "679b4445dee8c7cd3dea7912"
+  },
+  "movie": {
+    "$oid": "679a38f7dee8c7cd3de6db10"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie Tere name",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-01-30T09:20:05.792Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67a2f035dee8c7cd3d04cf5f"
+  },
+  "movie": {
+    "$oid": "67a21fcadee8c7cd3d03afba"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie darling",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-02-05T04:59:33.125Z"
+  },
+  "__v": 47,
+  "likes": [
+    {
+      "$oid": "67977880dee8c7cd3de1d9b9"
+    },
+    {
+      "$oid": "67e8309355d5c3520549444a"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67a4b1f2d7de1eceb8658f67"
+    },
+    {
+      "$oid": "67a4b20fd7de1eceb8658f6b"
+    },
+    {
+      "$oid": "67a4b2dbd7de1eceb8658f6f"
+    },
+    {
+      "$oid": "67a4b315d7de1eceb8658f73"
+    },
+    {
+      "$oid": "67a4b400d7de1eceb8658f77"
+    },
+    {
+      "$oid": "67a4b40ad7de1eceb8658f7b"
+    },
+    {
+      "$oid": "67a58c199bce55e0bbefc8e0"
+    },
+    {
+      "$oid": "67a58c419bce55e0bbefc8e4"
+    },
+    {
+      "$oid": "67a58c989bce55e0bbefc8f3"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67a30c41dee8c7cd3d05469c"
+  },
+  "movie": {
+    "$oid": "67a21fcadee8c7cd3d03afba"
+  },
+  "user": {
+    "$oid": "67977880dee8c7cd3de1d9b9"
+  },
+  "rating": 5,
+  "review_text": "Wow what a movie",
+  "is_deleted": false,
+  "created_at": {
+    "$date": "2025-02-05T06:59:13.971Z"
+  },
+  "__v": 34,
+  "likes": [
+    {
+      "$oid": "67977880dee8c7cd3de1d9b9"
+    },
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    },
+    {
+      "$oid": "67e8309355d5c3520549444a"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67a4b6dbd7de1eceb8658f7f"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67a48c2138754c114757dbcb"
+  },
+  "movie": {
+    "$oid": "67a36c1b38754c114755b3e6"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-02-06T10:17:05.095Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67a590629bce55e0bbf06b99"
+  },
+  "movie": {
+    "$oid": "67a4e9c19bce55e0bbef70ee"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    },
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67a5934e9bce55e0bbf0cd7a"
+    },
+    {
+      "$oid": "67a595c09bce55e0bbf0f4c2"
+    },
+    {
+      "$oid": "67a59ac49bce55e0bbf142f2"
+    },
+    {
+      "$oid": "67a59bd49bce55e0bbf142fc"
+    },
+    {
+      "$oid": "67a59c959bce55e0bbf14302"
+    },
+    {
+      "$oid": "67a59cea9bce55e0bbf1569a"
+    },
+    {
+      "$oid": "67a5a2f49bce55e0bbf1a3a4"
+    },
+    {
+      "$oid": "67a5a32a9bce55e0bbf1a3aa"
+    },
+    {
+      "$oid": "67a5a4d69bce55e0bbf1b740"
+    },
+    {
+      "$oid": "67a5d6c79bce55e0bbf2b64f"
+    },
+    {
+      "$oid": "67a5dce99bce55e0bbf32258"
+    },
+    {
+      "$oid": "67ac26ff6a89d0f069e9206b"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-02-07T04:47:30.027Z"
+  },
+  "__v": 24
+},
+{
+  "_id": {
+    "$oid": "67a5a5179bce55e0bbf1b750"
+  },
+  "movie": {
+    "$oid": "67a4e81d9bce55e0bbef6ac7"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Nice Movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977880dee8c7cd3de1d9b9"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67a5a5259bce55e0bbf1b768"
+    },
+    {
+      "$oid": "67a5a7099bce55e0bbf1d533"
+    },
+    {
+      "$oid": "67a5dd989bce55e0bbf32260"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-02-07T06:15:51.309Z"
+  },
+  "__v": 4
+},
+{
+  "_id": {
+    "$oid": "67a5a7329bce55e0bbf1e8c7"
+  },
+  "movie": {
+    "$oid": "67a4e50a9bce55e0bbef5e9b"
+  },
+  "user": {
+    "$oid": "67977880dee8c7cd3de1d9b9"
+  },
+  "rating": 5,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67a5a7469bce55e0bbf1e8e6"
+    },
+    {
+      "$oid": "67a5a7759bce55e0bbf1fc8d"
+    },
+    {
+      "$oid": "67a5e2949bce55e0bbf33ff9"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-02-07T06:24:50.629Z"
+  },
+  "__v": 10
+},
+{
+  "_id": {
+    "$oid": "67a5ca269bce55e0bbf27b46"
+  },
+  "movie": {
+    "$oid": "67a36ae438754c114755adf6"
+  },
+  "user": {
+    "$oid": "6794ea3adee8c7cd3ddde621"
+  },
+  "rating": 4,
+  "review_text": "Good movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-02-07T08:53:58.484Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ade34c5467acc8aeec1274"
+  },
+  "movie": {
+    "$oid": "67ab59236a89d0f069e90f65"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-02-13T12:19:24.327Z"
+  },
+  "__v": 5
+},
+{
+  "_id": {
+    "$oid": "67b081f1cb9d95b67b16d15a"
+  },
+  "movie": {
+    "$oid": "67af4f25cb9d95b67b0f07c6"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Ok Movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    },
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67b5e9cf547527513e91f111"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-02-15T12:00:49.185Z"
+  },
+  "__v": 21
+},
+{
+  "_id": {
+    "$oid": "67b2c951cb9d95b67b1d0c03"
+  },
+  "movie": {
+    "$oid": "67b09326cb9d95b67b1b9afd"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie this is ",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67b2c968cb9d95b67b1d0c23"
+    },
+    {
+      "$oid": "67b2e296cb9d95b67b21fa3f"
+    },
+    {
+      "$oid": "67b2f0b9cb9d95b67b254b57"
+    },
+    {
+      "$oid": "67b32304cb9d95b67b3493dd"
+    },
+    {
+      "$oid": "67b82434e31cabd7a2d7e6d2"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-02-17T05:29:53.258Z"
+  },
+  "__v": 20
+},
+{
+  "_id": {
+    "$oid": "67b53e32cb9d95b67b51e6d8"
+  },
+  "movie": {
+    "$oid": "67af4f25cb9d95b67b0f07c6"
+  },
+  "user": {
+    "$oid": "67978394dee8c7cd3de2331b"
+  },
+  "rating": 4,
+  "review_text": "“Chhaava” is a grand and intense historical drama that brings the story of Chhatrapati Sambhaji Maharaj to life with power and emotion. Vicky Kaushal delivers a commanding performance, perfectly capturing Sambhaji’s strength, resilience, and unwavering spirit. His portrayal makes you feel the weight of history, the burden of leadership, and the fire of rebellion. Akshaye Khanna as Aurangzeb adds a menacing presence, making their clashes all the more gripping. The film’s cinematography and production design are stunning, transporting you to the Maratha empire with remarkable detail. The battle sequences are brutal yet beautifully choreographed, keeping the tension high and the stakes real.\n\nWhile the film excels in action and spectacle, it sometimes prioritizes intensity over deeper character moments. There are scenes where I wished for a stronger emotional connection beyond the battlefield, but the film’s passion for its subject is undeniable. It’s a powerful tribute to a fearless warrior, and despite its few shortcomings, it remains a captivating watch. A solid 4 out of 5 stars for its performances, scale, and historical depth.",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-02-19T02:13:06.334Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "67b7fd82e31cabd7a2c9b751"
+  },
+  "movie": {
+    "$oid": "67926e67dee8c7cd3ddb7ca8"
+  },
+  "user": {
+    "$oid": "67978394dee8c7cd3de2331b"
+  },
+  "rating": 3,
+  "review_text": "good time pass film!",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-02-21T04:13:54.449Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67bc066de31cabd7a2f18011"
+  },
+  "movie": {
+    "$oid": "67b96a5ee31cabd7a2ec965c"
+  },
+  "user": {
+    "$oid": "67b9e3a0e31cabd7a2ee7342"
+  },
+  "rating": 5,
+  "review_text": "The greatest love story ever ! ",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67bc090ce31cabd7a2f19aa3"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-02-24T05:41:01.400Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "67bc0d47e31cabd7a2f27899"
+  },
+  "movie": {
+    "$oid": "67925f1cdee8c7cd3ddb4e2a"
+  },
+  "user": {
+    "$oid": "67bc0d0de31cabd7a2f25e2a"
+  },
+  "rating": 5,
+  "review_text": "Good movie ",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67c812e19d1b7a54e60d69ba"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-02-24T06:10:15.256Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "67bc57e5e31cabd7a2f9558c"
+  },
+  "movie": {
+    "$oid": "67b9787be31cabd7a2ee15fd"
+  },
+  "user": {
+    "$oid": "67bc4945e31cabd7a2f56cf8"
+  },
+  "rating": 5,
+  "review_text": "Nice Movies",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-02-24T11:28:37.834Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "67bca50ae31cabd7a2129f4c"
+  },
+  "movie": {
+    "$oid": "677cfd05015ec47cd3643456"
+  },
+  "user": {
+    "$oid": "67978394dee8c7cd3de2331b"
+  },
+  "rating": 5,
+  "review_text": "The best movie in my entire life, it’s a mind blowing movie!. All action lovers should watch this movie ",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67b9e3a0e31cabd7a2ee7342"
+    },
+    {
+      "$oid": "67cfb9de9d1b7a54e6159668"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67bec99ae31cabd7a22f75c5"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-02-24T16:57:46.694Z"
+  },
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "67bef4b4e31cabd7a23545a4"
+  },
+  "movie": {
+    "$oid": "67af4f25cb9d95b67b0f07c6"
+  },
+  "user": {
+    "$oid": "67bedf9ee31cabd7a2332122"
+  },
+  "rating": 3,
+  "review_text": "Chhava is a recently released movie that brings to life the bravery and legacy of Sambhaji Maharaj, who carried forward the Maratha Empire’s vision after Chhatrapati Shivaji Maharaj. While the film showcases his remarkable courage in battling Aurangzeb, it also highlights his unwavering spirit during over 40 days of brutal torture, where he refused to surrender or accept any of Aurangzeb’s terms.\n\nIf you enjoy movies based on real historical figures, Chhava is worth watching. However, if you expect a grand cinematic experience like Baahubali, where every character is given a larger-than-life presence, you might be disappointed. While Sambhaji Maharaj’s character is portrayed well, the film could have elevated the supporting characters with the same depth and impact, making them equally memorable.",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    },
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67bef6c6e31cabd7a2359551"
+    },
+    {
+      "$oid": "6801089643ce02c8f43bf91e"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-02-26T11:02:12.536Z"
+  },
+  "__v": 20
+},
+{
+  "_id": {
+    "$oid": "67c04d66e31cabd7a23e663a"
+  },
+  "movie": {
+    "$oid": "67879bda8aa424880ac98898"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Ok Movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [
+    {
+      "$oid": "67c04d73e31cabd7a23e6653"
+    },
+    {
+      "$oid": "67c73afedf382a0ee43eeffa"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-02-27T11:32:54.304Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "67c0583ae31cabd7a23e8a13"
+  },
+  "movie": {
+    "$oid": "67925f1cdee8c7cd3ddb4e2a"
+  },
+  "user": {
+    "$oid": "67be931ae31cabd7a22964ff"
+  },
+  "rating": 5,
+  "review_text": "Nice Movie ",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-02-27T12:19:06.885Z"
+  },
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "67c06b3dd0bb37f71f538dad"
+  },
+  "movie": {
+    "$oid": "67aa06e69bce55e0bbfae426"
+  },
+  "user": {
+    "$oid": "67bc4945e31cabd7a2f56cf8"
+  },
+  "rating": 5,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-02-27T13:40:13.072Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "67c14b7ed0bb37f71f58c3b8"
+  },
+  "movie": {
+    "$oid": "6798e330dee8c7cd3de536da"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a mvies",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    },
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67c14da7d0bb37f71f58c3d1"
+    },
+    {
+      "$oid": "67c5bf5a60b8a2fb696da9b5"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-02-28T05:37:02.944Z"
+  },
+  "__v": 58
+},
+{
+  "_id": {
+    "$oid": "67c196cf8d6803bcd613aebd"
+  },
+  "movie": {
+    "$oid": "677cd2f2015ec47cd3637299"
+  },
+  "user": {
+    "$oid": "679dd040dee8c7cd3df3d90a"
+  },
+  "rating": 4,
+  "review_text": "If you are a tennis lover you will love this movie. If you arnt then you could still give it a go. Mixed feels on this one ",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-02-28T10:58:23.426Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c196fa8d6803bcd613cd89"
+  },
+  "movie": {
+    "$oid": "67b971f0e31cabd7a2ed5e8f"
+  },
+  "user": {
+    "$oid": "679dd040dee8c7cd3df3d90a"
+  },
+  "rating": 5,
+  "review_text": "Timeless movie. Can watch it anytime over and over again ",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-02-28T10:59:06.184Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c2c27759646841f2c70496"
+  },
+  "movie": {
+    "$oid": "67af4f25cb9d95b67b0f07c6"
+  },
+  "user": {
+    "$oid": "67be931ae31cabd7a22964ff"
+  },
+  "rating": 5,
+  "review_text": "Best movie ",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    },
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-01T08:16:55.971Z"
+  },
+  "__v": 16
+},
+{
+  "_id": {
+    "$oid": "67c5de0360b8a2fb696e13ee"
+  },
+  "movie": {
+    "$oid": "67a36c1b38754c114755b3e6"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "What a movie this is",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [
+    {
+      "$oid": "67c5de1e60b8a2fb696e2863"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-03T16:51:15.277Z"
+  },
+  "__v": 5
+},
+{
+  "_id": {
+    "$oid": "67c68b0d60b8a2fb696f2be4"
+  },
+  "movie": {
+    "$oid": "67a60c349bce55e0bbf92a8f"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-04T05:09:33.249Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c6a436c29493a5f4b2bc9f"
+  },
+  "movie": {
+    "$oid": "677d0888015ec47cd36447bc"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie alien",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    },
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67c6a459c29493a5f4b2d934"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-04T06:56:54.097Z"
+  },
+  "__v": 5
+},
+{
+  "_id": {
+    "$oid": "67c737acdf382a0ee43e76ee"
+  },
+  "movie": {
+    "$oid": "67becf26e31cabd7a2302b72"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-04T17:26:04.037Z"
+  },
+  "__v": 9
+},
+{
+  "_id": {
+    "$oid": "67c73bcedf382a0ee43ef02d"
+  },
+  "movie": {
+    "$oid": "679deee6dee8c7cd3df4bb3d"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67c73bf5df382a0ee43ef0c4"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-04T17:43:42.500Z"
+  },
+  "__v": 4
+},
+{
+  "_id": {
+    "$oid": "67c797a2df382a0ee43f022a"
+  },
+  "movie": {
+    "$oid": "678b53a2231a47ce4667780e"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67c827159d1b7a54e613f31a"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-05T00:15:30.534Z"
+  },
+  "__v": 4
+},
+{
+  "_id": {
+    "$oid": "67c82f039d1b7a54e61b527f"
+  },
+  "movie": {
+    "$oid": "678638338aa424880ac80ef7"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Aaa",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-05T11:01:23.930Z"
+  },
+  "__v": 4
+},
+{
+  "_id": {
+    "$oid": "67c900259d1b7a54e643ab69"
+  },
+  "movie": {
+    "$oid": "67b33ca5cb9d95b67b3809ed"
+  },
+  "user": {
+    "$oid": "67978394dee8c7cd3de2331b"
+  },
+  "rating": 4,
+  "review_text": "David Fincher never misses when it comes to psychological thrillers, and Gone Girl is proof of that. This isn’t just a movie; it’s an experience—one that pulls you into a marriage gone horribly wrong and leaves you questioning everything.\n\nFrom the very first frame, the film grips you with its eerie stillness, its unsettling calm before the storm. Ben Affleck delivers a solid performance as Nick Dunne, a man caught in the worst nightmare imaginable when his wife, Amy (played brilliantly by Rosamund Pike), goes missing under suspicious circumstances. But let’s be honest, this is Rosamund Pike’s film. She embodies Amy with such precision—cold, calculated, yet eerily charming. Her performance is nothing short of chilling.\n\nThe screenplay, adapted by Gillian Flynn from her own novel, is razor-sharp. It plays with perception, media manipulation, and gender dynamics in a way that feels disturbingly real. The twists hit hard, and even if you’ve read the book, seeing them unfold on screen still leaves an impact. The haunting score by Trent Reznor and Atticus Ross only amplifies the unease, making every scene feel like a slow descent into madness.\n\nWhy not 5 stars? The second half slightly drags in parts, and some moments feel a bit exaggerated. But that doesn’t take away from how masterfully crafted this film is. It’s dark, it’s clever, and it leaves you unsettled long after the credits roll. If you love psychological thrillers with a sharp edge, Gone Girl is a must-watch.",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-06T01:53:41.841Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "67ca8eb69d1b7a54e6761bca"
+  },
+  "movie": {
+    "$oid": "67a0cbf2dee8c7cd3df979da"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie is this.",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    },
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67ff9f2343ce02c8f4e67d07"
+    },
+    {
+      "$oid": "67ff9f2d43ce02c8f4e67e42"
+    },
+    {
+      "$oid": "67ff9f3843ce02c8f4e6801d"
+    },
+    {
+      "$oid": "67ff9f6543ce02c8f4e68679"
+    },
+    {
+      "$oid": "67ffa2a043ce02c8f4e6fe99"
+    },
+    {
+      "$oid": "67ffa6cb43ce02c8f4e7b5b1"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-07T06:14:14.313Z"
+  },
+  "__v": 8
+},
+{
+  "_id": {
+    "$oid": "67caae0c9d1b7a54e68d2aaf"
+  },
+  "movie": {
+    "$oid": "6790f780366ba38eccfa6f63"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "What a Movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-07T08:27:56.169Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67cbd7b39d1b7a54e6c3cd5a"
+  },
+  "movie": {
+    "$oid": "6779077709444f5a0efd5aa7"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67cbd7c89d1b7a54e6c3e225"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-08T05:37:55.673Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "67cebc2f9d1b7a54e607a9ca"
+  },
+  "movie": {
+    "$oid": "66a204c8519ff3d289917b93"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    },
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-10T10:17:19.910Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "67cfba749d1b7a54e6159673"
+  },
+  "movie": {
+    "$oid": "6787c4fb590503ad60a9ef99"
+  },
+  "user": {
+    "$oid": "67cfb9de9d1b7a54e6159668"
+  },
+  "rating": 5,
+  "review_text": "12th Fail is an inspiring tale of resilience and perseverance. Vikrant Massey delivers a powerful performance, making the journey feel real and emotional. The film’s raw storytelling and gripping narrative highlight the power of second chances. A must-watch for anyone seeking motivation",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-11T04:22:12.771Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67cfbaf39d1b7a54e615968b"
+  },
+  "movie": {
+    "$oid": "678795918aa424880ac96a2a"
+  },
+  "user": {
+    "$oid": "67cfb9de9d1b7a54e6159668"
+  },
+  "rating": 5,
+  "review_text": "3 Idiots is a heartwarming film about friendship, education and following one’s passion. It blends humor, emotion and meaningful life lessons, making it an enjoyable and inspiring watch for all",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "6800b6a843ce02c8f4031834"
+    },
+    {
+      "$oid": "6800b6e443ce02c8f4037d81"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-11T04:24:19.757Z"
+  },
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "67cfc1ba9d1b7a54e615d33d"
+  },
+  "movie": {
+    "$oid": "67c311cabfa7b018b0a34e54"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "what a movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    },
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67cfc1d09d1b7a54e615d90a"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-11T04:53:14.709Z"
+  },
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "67cfc8a89d1b7a54e6183a7f"
+  },
+  "movie": {
+    "$oid": "679db832dee8c7cd3df36a95"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [
+    {
+      "$oid": "67cfc8b69d1b7a54e6183e6b"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-11T05:22:48.122Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "67cfcf5c9d1b7a54e61a1609"
+  },
+  "movie": {
+    "$oid": "67926c35dee8c7cd3ddb71c2"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-11T05:51:24.218Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67cfcf5c9d1b7a54e61a16a4"
+  },
+  "movie": {
+    "$oid": "67926c35dee8c7cd3ddb71c2"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67cfcf809d1b7a54e61a1f50"
+    },
+    {
+      "$oid": "67ffae1b43ce02c8f4e95f9e"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-11T05:51:24.548Z"
+  },
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "67cfdf159d1b7a54e6207e67"
+  },
+  "movie": {
+    "$oid": "67925f1cdee8c7cd3ddb4e2a"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Wha a movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-11T06:58:29.260Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67cfdf259d1b7a54e62084ae"
+  },
+  "movie": {
+    "$oid": "678b7a399761bb8e19c28445"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "What a movie\n",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67cfdf359d1b7a54e6208abf"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-11T06:58:45.906Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "67d11ecf9d1b7a54e63a20d3"
+  },
+  "movie": {
+    "$oid": "6790fea5366ba38eccfa9f44"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-12T05:42:39.678Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d1248c9d1b7a54e63d7c93"
+  },
+  "movie": {
+    "$oid": "67a21dffdee8c7cd3d03a420"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie this is.",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "681d8e218a820010af0ecefe"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-12T06:07:08.839Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "67d125649d1b7a54e63de704"
+  },
+  "movie": {
+    "$oid": "67c2f83e59646841f2e43444"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-12T06:10:44.865Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "67d126909d1b7a54e63ecd74"
+  },
+  "movie": {
+    "$oid": "679e2171dee8c7cd3df83440"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "What a movie this is.",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-12T06:15:44.229Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d1913a9d1b7a54e64f94c1"
+  },
+  "movie": {
+    "$oid": "679262bbdee8c7cd3ddb6132"
+  },
+  "user": {
+    "$oid": "67d190369d1b7a54e64e7ccb"
+  },
+  "rating": 4,
+  "review_text": "One of the finest comedy movie I have ever seen!",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-12T13:50:50.487Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67d263619d1b7a54e650dde6"
+  },
+  "movie": {
+    "$oid": "679e0d1adee8c7cd3df57135"
+  },
+  "user": {
+    "$oid": "67cfb9de9d1b7a54e6159668"
+  },
+  "rating": 5,
+  "review_text": "Stylish action, intense fights, stunning visuals, Reeves excels, thrilling sequel",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67cfb9de9d1b7a54e6159668"
+    },
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    },
+    {
+      "$oid": "67b6e0dd547527513ea0ef0f"
+    },
+    {
+      "$oid": "67d030b99d1b7a54e6329987"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67fbed4443ce02c8f4fba522"
+    },
+    {
+      "$oid": "6812d865727e76993a5aac93"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-13T04:47:29.115Z"
+  },
+  "__v": 6
+},
+{
+  "_id": {
+    "$oid": "67de8b6794c6fc81667e4450"
+  },
+  "movie": {
+    "$oid": "679de238dee8c7cd3df43ec0"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-22T10:05:27.290Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "67e28fb3337a172d8c94c462"
+  },
+  "movie": {
+    "$oid": "67af4f25cb9d95b67b0f07c6"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie Spak",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [
+    {
+      "$oid": "67ff431243ce02c8f493ad2b"
+    },
+    {
+      "$oid": "6801088443ce02c8f43bc9dd"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-03-25T11:12:51.572Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "67e8314655d5c35205496a7b"
+  },
+  "movie": {
+    "$oid": "67af45b8cb9d95b67b0e4914"
+  },
+  "user": {
+    "$oid": "67e8309355d5c3520549444a"
+  },
+  "rating": 5,
+  "review_text": "Captain America fan",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-03-29T17:43:34.204Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67f4cd7324d7b4524e481a16"
+  },
+  "movie": {
+    "$oid": "67ea723955d5c35205864e0b"
+  },
+  "user": {
+    "$oid": "67e7ea9955d5c352052a34b1"
+  },
+  "rating": 1,
+  "review_text": "1 no. Ghatiya movie\n",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    },
+    {
+      "$oid": "67cfb9de9d1b7a54e6159668"
+    },
+    {
+      "$oid": "67bc0d0de31cabd7a2f25e2a"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "67f75eb6ba4b94782891df41"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-04-08T07:17:07.957Z"
+  },
+  "__v": 8
+},
+{
+  "_id": {
+    "$oid": "67fd372f43ce02c8f485f0f6"
+  },
+  "movie": {
+    "$oid": "67fca8bc43ce02c8f4124823"
+  },
+  "user": {
+    "$oid": "67978394dee8c7cd3de2331b"
+  },
+  "rating": 3,
+  "review_text": "This was a good movie! How a husband goes above & beyond to get rid of his wives killers! Decent acting from all!",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-14T16:26:23.057Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "67ff559e43ce02c8f4a83fa3"
+  },
+  "movie": {
+    "$oid": "67fca8bc43ce02c8f4124823"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T07:00:46.974Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ff6c1a43ce02c8f4afc77b"
+  },
+  "movie": {
+    "$oid": "67bee931e31cabd7a2339f7e"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "What a movie this is. I really like this movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T08:36:42.932Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ff6ef343ce02c8f4b116da"
+  },
+  "movie": {
+    "$oid": "6790ee43366ba38eccfa26cb"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "What a movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T08:48:51.117Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ff717943ce02c8f4b40cc8"
+  },
+  "movie": {
+    "$oid": "678b78ac9761bb8e19c2751a"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "What a movie this is.",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T08:59:37.047Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ff72fd43ce02c8f4b61469"
+  },
+  "movie": {
+    "$oid": "678b78ac9761bb8e19c2751a"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "What a movie manju. ",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T09:06:05.787Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ff75dd43ce02c8f4bc5f52"
+  },
+  "movie": {
+    "$oid": "6784e05b14a0e21bdf716776"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T09:18:21.760Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "67ff873143ce02c8f4dedc77"
+  },
+  "movie": {
+    "$oid": "66a20438519ff3d289917b8b"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "S",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T10:32:17.221Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ff879143ce02c8f4df1c4f"
+  },
+  "movie": {
+    "$oid": "679e0484dee8c7cd3df50f92"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "D",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T10:33:53.830Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ff88cd43ce02c8f4df6eba"
+  },
+  "movie": {
+    "$oid": "6787b0f2590503ad60a8fc5b"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T10:39:09.475Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ff894a43ce02c8f4e0160e"
+  },
+  "movie": {
+    "$oid": "679dfa14dee8c7cd3df4edb5"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T10:41:14.133Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ff8b4043ce02c8f4e06fd0"
+  },
+  "movie": {
+    "$oid": "678645ec8aa424880ac83a7e"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T10:49:36.563Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "67ff95e443ce02c8f4e516fd"
+  },
+  "movie": {
+    "$oid": "6784f7848aa424880ac51ee2"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T11:35:00.551Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "67ffaf1743ce02c8f4eadf66"
+  },
+  "movie": {
+    "$oid": "67926c35dee8c7cd3ddb71c2"
+  },
+  "user": {
+    "$oid": "67978394dee8c7cd3de2331b"
+  },
+  "rating": 4,
+  "review_text": "Wonderful movie! Must watch for all Akshay fans!",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-16T13:22:31.801Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "680089ca43ce02c8f4f1c57e"
+  },
+  "movie": {
+    "$oid": "67d5716c9d1b7a54e65271f5"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "680089de43ce02c8f4f1c94f"
+    },
+    {
+      "$oid": "68008a4b43ce02c8f4f1d8e9"
+    },
+    {
+      "$oid": "68008a5543ce02c8f4f1da75"
+    },
+    {
+      "$oid": "68008a6543ce02c8f4f1dc9e"
+    },
+    {
+      "$oid": "68008a6e43ce02c8f4f1dde9"
+    },
+    {
+      "$oid": "6800b37c43ce02c8f4fe9e70"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-04-17T04:55:38.845Z"
+  },
+  "__v": 7
+},
+{
+  "_id": {
+    "$oid": "68034f5643ce02c8f4f119bb"
+  },
+  "movie": {
+    "$oid": "67ea723955d5c35205864e0b"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Kya mujhe ye movie dekhna chahiye",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-19T07:23:02.623Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "680e171de74394d87a17587e"
+  },
+  "movie": {
+    "$oid": "678601148aa424880ac684e0"
+  },
+  "user": {
+    "$oid": "67978394dee8c7cd3de2331b"
+  },
+  "rating": 5,
+  "review_text": "One of the best Action SCI Fi movie ever! What action! What Visual FX! Just amazing!",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    },
+    {
+      "$oid": "67e7ea9955d5c352052a34b1"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "680e4bf7e74394d87a1bd132"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-04-27T11:38:05.309Z"
+  },
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "680e4febe74394d87a1dfc7d"
+  },
+  "movie": {
+    "$oid": "6798e89fdee8c7cd3de557d0"
+  },
+  "user": {
+    "$oid": "67e7ea9955d5c352052a34b1"
+  },
+  "rating": 4,
+  "review_text": "Nice movie, good acting, over all is 😊 ",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-27T15:40:27.841Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "680e50ade74394d87a1ee12a"
+  },
+  "movie": {
+    "$oid": "678b6c234b2a6d0ae2f761e8"
+  },
+  "user": {
+    "$oid": "67e7ea9955d5c352052a34b1"
+  },
+  "rating": 5,
+  "review_text": "What a thriller, one of best thriller & suspense movie.\nI would recommend to everyone must watch !",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "680e5b74e74394d87a22b389"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-04-27T15:43:41.472Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "680e5117e74394d87a1f7866"
+  },
+  "movie": {
+    "$oid": "6784fabe8aa424880ac52e56"
+  },
+  "user": {
+    "$oid": "67e7ea9955d5c352052a34b1"
+  },
+  "rating": 4,
+  "review_text": "The origin of batman, very nice.",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-27T15:45:27.769Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "680e521ee74394d87a20909a"
+  },
+  "movie": {
+    "$oid": "6778f1f509444f5a0efd13d3"
+  },
+  "user": {
+    "$oid": "67e7ea9955d5c352052a34b1"
+  },
+  "rating": 5,
+  "review_text": "This masterpiece for the thriller & suspense lovers!\nSpecially “R madhvan” was fabulous ❤️",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "680e5b36e74394d87a225a1b"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-04-27T15:49:50.895Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "680e54e8e74394d87a2131af"
+  },
+  "movie": {
+    "$oid": "679e0ab9dee8c7cd3df54af1"
+  },
+  "user": {
+    "$oid": "67e7ea9955d5c352052a34b1"
+  },
+  "rating": 2,
+  "review_text": "It was ok ok type😒",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    },
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "680e5b19e74394d87a222f25"
+    },
+    {
+      "$oid": "681b5e49145e3c5a910b39e0"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-04-27T16:01:44.387Z"
+  },
+  "__v": 4
+},
+{
+  "_id": {
+    "$oid": "6810d84c727e76993a885db1"
+  },
+  "movie": {
+    "$oid": "677cd05c015ec47cd3636b89"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Allah hoon akbar",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-29T13:46:52.033Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68121f7b727e76993a34f77d"
+  },
+  "movie": {
+    "$oid": "67aa06e69bce55e0bbfae426"
+  },
+  "user": {
+    "$oid": "67978394dee8c7cd3de2331b"
+  },
+  "rating": 4,
+  "review_text": "great story! amazing acting!",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-04-30T13:02:51.435Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68121f88727e76993a3531d9"
+  },
+  "movie": {
+    "$oid": "679e0d1adee8c7cd3df57135"
+  },
+  "user": {
+    "$oid": "67e7ea9955d5c352052a34b1"
+  },
+  "rating": 5,
+  "review_text": "Full of action pack, superb 👌 ",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67978394dee8c7cd3de2331b"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "681c74f58a820010afe3ae11"
+    },
+    {
+      "$oid": "682c7e2a971fd490fa75a3f2"
+    },
+    {
+      "$oid": "682dd6d6971fd490fabc743e"
+    },
+    {
+      "$oid": "683065cd971fd490faaafed1"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-04-30T13:03:04.805Z"
+  },
+  "__v": 5
+},
+{
+  "_id": {
+    "$oid": "68144657727e76993a644742"
+  },
+  "movie": {
+    "$oid": "6798e45ddee8c7cd3de54682"
+  },
+  "user": {
+    "$oid": "67e7ea9955d5c352052a34b1"
+  },
+  "rating": 2,
+  "review_text": "The songs were good but story is same typical bollywood😒",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-02T04:13:11.385Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681500ca727e76993ab0851e"
+  },
+  "movie": {
+    "$oid": "6778f00d09444f5a0efd09e7"
+  },
+  "user": {
+    "$oid": "67978394dee8c7cd3de2331b"
+  },
+  "rating": 3,
+  "review_text": "a decent flick!",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-02T17:28:42.978Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6819eb709be264bd12df19db"
+  },
+  "movie": {
+    "$oid": "677d0f8d015ec47cd3646f3b"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "6819eb7f9be264bd12df30ba"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-06T10:58:56.437Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "6819f3059be264bd12ea7db0"
+  },
+  "movie": {
+    "$oid": "67a4deff9bce55e0bbef323c"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "681b3f458d92e647e278a85f"
+    },
+    {
+      "$oid": "681b49698d92e647e296304e"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-06T11:31:17.400Z"
+  },
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "6819f3ef9be264bd12eac513"
+  },
+  "movie": {
+    "$oid": "67b8430de31cabd7a2e40add"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [
+    {
+      "$oid": "6819f4989be264bd12eaea25"
+    },
+    {
+      "$oid": "681c4e672fddf14bf82ac1d3"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-06T11:35:11.431Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "681b5304145e3c5a91fcbc4b"
+  },
+  "movie": {
+    "$oid": "6787a0ce8aa424880ac98de2"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [
+    {
+      "$oid": "681b530e145e3c5a91fcddbe"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-07T12:33:08.146Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "681b578e145e3c5a91fe15b3"
+  },
+  "movie": {
+    "$oid": "677cdfdd015ec47cd363f273"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Awesome Nice",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "681b579c145e3c5a91fe198e"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-07T12:52:30.630Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "681b5801145e3c5a91fe4dd2"
+  },
+  "movie": {
+    "$oid": "678b8924c53ed6c089d3e9d1"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "681b580d145e3c5a91fe51a6"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-07T12:54:25.214Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "681c4a9b145e3c5a9120f5d3"
+  },
+  "movie": {
+    "$oid": "679df2eedee8c7cd3df4d52c"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "681c4aa9145e3c5a9120f9b8"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-08T06:09:31.921Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "681c4c57145e3c5a91229f94"
+  },
+  "movie": {
+    "$oid": "677929a509444f5a0efda313"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Nice Moview ",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "681c4c70145e3c5a9122a68f"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-08T06:16:55.210Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "681d8ca18a820010af0cabc2"
+  },
+  "movie": {
+    "$oid": "67c2def359646841f2d24c73"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [
+    {
+      "$oid": "681d8ce28a820010af0cbbac"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-09T05:03:29.539Z"
+  },
+  "__v": 5
+},
+{
+  "_id": {
+    "$oid": "681d8eb98a820010af0f1a28"
+  },
+  "movie": {
+    "$oid": "6803745543ce02c8f40e8794"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-09T05:12:25.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681d9ac68a820010af13fc9e"
+  },
+  "movie": {
+    "$oid": "67c302c659646841f2ed4e96"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Very Bad Movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-09T06:03:50.532Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681d9ad68a820010af1401ba"
+  },
+  "movie": {
+    "$oid": "67d1aeef9d1b7a54e6505850"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-09T06:04:06.405Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681d9c738a820010af147606"
+  },
+  "movie": {
+    "$oid": "67d581b09d1b7a54e652ddd7"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Nice Movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-09T06:10:59.612Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681d9c818a820010af1479f9"
+  },
+  "movie": {
+    "$oid": "679df739dee8c7cd3df4e3d0"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-09T06:11:13.340Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681dab328a820010af1a1c02"
+  },
+  "movie": {
+    "$oid": "6788fec4a7f15bb1fc064963"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-09T07:13:54.400Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681dab8f8a820010af1aba8c"
+  },
+  "movie": {
+    "$oid": "6803a96c43ce02c8f4618c5f"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Kya Movie hai",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-09T07:15:27.388Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681dd23a8a820010af3da0ed"
+  },
+  "movie": {
+    "$oid": "6779268b09444f5a0efd998c"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 5,
+  "review_text": "Wow",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "681d8e218a820010af0ecefe"
+    },
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "682c4d75971fd490faf7aeb4"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-09T10:00:26.397Z"
+  },
+  "__v": 5
+},
+{
+  "_id": {
+    "$oid": "68231c61f821c91036f806e6"
+  },
+  "movie": {
+    "$oid": "678b2b92231a47ce466654d6"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-13T10:18:09.221Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68231c80f821c91036f85d48"
+  },
+  "movie": {
+    "$oid": "678b2b92231a47ce466654d6"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 3,
+  "review_text": "Nice Movie #zindaginamiledobara",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [
+    {
+      "$oid": "68231dd1f821c91036fab47b"
+    },
+    {
+      "$oid": "68231e1df821c91036fb3463"
+    },
+    {
+      "$oid": "68231e53f821c91036fb8ded"
+    },
+    {
+      "$oid": "68231e98f821c91036fc02bf"
+    },
+    {
+      "$oid": "68231ef8f821c91036fca1c9"
+    },
+    {
+      "$oid": "68231f01f821c91036fcb4fd"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-13T10:18:40.191Z"
+  },
+  "__v": 6
+},
+{
+  "_id": {
+    "$oid": "68231faaf821c91036fdcd12"
+  },
+  "movie": {
+    "$oid": "678b2b92231a47ce466654d6"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 3,
+  "review_text": "Awesome Movi #zind",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [
+    {
+      "$oid": "68232003f821c91036fe60ac"
+    },
+    {
+      "$oid": "68232128f821c91036006e0d"
+    },
+    {
+      "$oid": "68232133f821c91036008147"
+    },
+    {
+      "$oid": "68232154f821c9103600b7dc"
+    },
+    {
+      "$oid": "68232175f821c9103600f1db"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-13T10:32:10.395Z"
+  },
+  "__v": 5
+},
+{
+  "_id": {
+    "$oid": "682326574b313337099c0f68"
+  },
+  "movie": {
+    "$oid": "678ba06d03b60043540c03c0"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 4,
+  "review_text": "#test #manish",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [
+    {
+      "$oid": "682326664b313337099c3d05"
+    },
+    {
+      "$oid": "682327474b313337099f0033"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-13T11:00:39.867Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "6825d7624e3cf314e567826a"
+  },
+  "movie": {
+    "$oid": "679dff0bdee8c7cd3df4fccb"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 3,
+  "review_text": "@shivstuff @aditi506 ",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-15T12:00:34.407Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6825d8704e3cf314e567c618"
+  },
+  "movie": {
+    "$oid": "679dff0bdee8c7cd3df4fccb"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 3,
+  "review_text": "@shivstuff @aditi506 ",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-15T12:05:04.376Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6825d9444e3cf314e567fbad"
+  },
+  "movie": {
+    "$oid": "679dff0bdee8c7cd3df4fccb"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 4,
+  "review_text": "@shivstuff @aditi506 ",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-15T12:08:36.059Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6825da034e3cf314e568a325"
+  },
+  "movie": {
+    "$oid": "678ba06d03b60043540c03c0"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 3,
+  "review_text": "Bad movies @manchow ",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-15T12:11:47.564Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6825e13b4e3cf314e57474f8"
+  },
+  "movie": {
+    "$oid": "678ba06d03b60043540c03c0"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 4,
+  "review_text": "@shivstuff @Nishri ",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [
+    {
+      "$oid": "6825eec54e3cf314e58a427f"
+    },
+    {
+      "$oid": "6826d4cc318d146247ae7af0"
+    },
+    {
+      "$oid": "6826d5cb8e9ab887afa910e1"
+    },
+    {
+      "$oid": "6826d60642c0e4e026b96a16"
+    },
+    {
+      "$oid": "6826d6951a06565dc10b11b1"
+    },
+    {
+      "$oid": "6826d72a808a7b2351b0403a"
+    },
+    {
+      "$oid": "6826d73d808a7b2351b0613d"
+    },
+    {
+      "$oid": "6826d7b6808a7b2351b13652"
+    },
+    {
+      "$oid": "6826d7fa808a7b2351b1aec9"
+    },
+    {
+      "$oid": "6826e5b8c093f0200a1550c1"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-15T12:42:35.233Z"
+  },
+  "__v": 10
+},
+{
+  "_id": {
+    "$oid": "6825e50c4e3cf314e5794a02"
+  },
+  "movie": {
+    "$oid": "67a6162d9bce55e0bbf9dd38"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 4,
+  "review_text": "Awesome Movie @shivstuff @Nishri ",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "681d8e218a820010af0ecefe"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "6825e51e4e3cf314e5796911"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-15T12:58:52.925Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "6826cdf3318d146247a35872"
+  },
+  "movie": {
+    "$oid": "68037a7043ce02c8f4151a01"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 5,
+  "review_text": "Awesome Moview",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-16T05:32:35.904Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826e521c093f0200a1447fc"
+  },
+  "movie": {
+    "$oid": "67860be18aa424880ac6c5d4"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 5,
+  "review_text": "@shivstuff @Nilesh501 ",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-16T07:11:29.488Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6826f8f3ba51b7d5cf561957"
+  },
+  "movie": {
+    "$oid": "678bb16603b60043540c768c"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 4,
+  "review_text": "@shivstuff ",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [
+    {
+      "$oid": "6826f903ba51b7d5cf561dbe"
+    },
+    {
+      "$oid": "6826fe0dba51b7d5cf5d6cc8"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-16T08:36:03.233Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "68273976971fd490fa985d33"
+  },
+  "movie": {
+    "$oid": "6778ee9609444f5a0efcfc46"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Wow @aditi506 ",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-16T13:11:18.106Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682c4e03971fd490faf9864f"
+  },
+  "movie": {
+    "$oid": "677ce892015ec47cd3640df9"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Awesome @shivstuff ",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "682c4e11971fd490faf9b485"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-20T09:40:19.218Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "682c67a0971fd490fa37c3f7"
+  },
+  "movie": {
+    "$oid": "67c2e28159646841f2d58f86"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Ok Movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "682c67c5971fd490fa38439b"
+    },
+    {
+      "$oid": "682db276971fd490fa6896ed"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-20T11:29:36.722Z"
+  },
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "682eea2e971fd490faeeade6"
+  },
+  "movie": {
+    "$oid": "6825c5ec4b313337093698bb"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 4,
+  "review_text": "Nice Movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "682eea3e971fd490faeec59d"
+    },
+    {
+      "$oid": "682ef401971fd490fa014ea4"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-22T09:11:10.321Z"
+  },
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "68305ad9971fd490fa9f08c5"
+  },
+  "movie": {
+    "$oid": "679dc0dddee8c7cd3df38cab"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 4,
+  "review_text": "Bad Movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "681d8e218a820010af0ecefe"
+    },
+    {
+      "$oid": "67977895dee8c7cd3de1d9bb"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "68305ae4971fd490fa9f1736"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-23T11:24:09.696Z"
+  },
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "68305b9a971fd490faa01c8e"
+  },
+  "movie": {
+    "$oid": "678e5d326c028a2bde4dee0c"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 3,
+  "review_text": "Bad Movie",
+  "is_deleted": false,
+  "likes": [
+    {
+      "$oid": "681d8e218a820010af0ecefe"
+    }
+  ],
+  "comments": [
+    {
+      "$oid": "68305bd2971fd490faa03e73"
+    }
+  ],
+  "created_at": {
+    "$date": "2025-05-23T11:27:22.549Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "683447b7400a039771daf617"
+  },
+  "movie": {
+    "$oid": "679e12dbdee8c7cd3df6146b"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Awesome moview",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-26T10:51:35.883Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683447f0400a039771db4a06"
+  },
+  "movie": {
+    "$oid": "67b96df1e31cabd7a2ed10bf"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Awesome movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-26T10:52:32.116Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68344f5e9580e555c7c83406"
+  },
+  "movie": {
+    "$oid": "6803745543ce02c8f40e8794"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 4,
+  "review_text": "Bad movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-26T11:24:14.075Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68344f9a400a039771df97c8"
+  },
+  "movie": {
+    "$oid": "6803745543ce02c8f40e8794"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "I like the movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-26T11:25:14.825Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68344ff0400a039771dfe565"
+  },
+  "movie": {
+    "$oid": "678611088aa424880ac6e25c"
+  },
+  "user": {
+    "$oid": "67977895dee8c7cd3de1d9bb"
+  },
+  "rating": 3,
+  "review_text": "Wowo",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-26T11:26:40.093Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68345b97213899e6a132f38c"
+  },
+  "movie": {
+    "$oid": "682defb3971fd490fac2b995"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 3,
+  "review_text": "Bad movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-26T12:16:23.856Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68345bbc213899e6a132fdd9"
+  },
+  "movie": {
+    "$oid": "682defb3971fd490fac2b995"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 1,
+  "review_text": "1",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-26T12:17:00.440Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68345bd7213899e6a13305bd"
+  },
+  "movie": {
+    "$oid": "682defb3971fd490fac2b995"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 3,
+  "review_text": "Ds",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-26T12:17:27.791Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68345eaa213899e6a133c8b6"
+  },
+  "movie": {
+    "$oid": "67927181dee8c7cd3ddb9012"
+  },
+  "user": {
+    "$oid": "681d8e218a820010af0ecefe"
+  },
+  "rating": 4,
+  "review_text": "Bekar movie",
+  "is_deleted": false,
+  "likes": [],
+  "comments": [],
+  "created_at": {
+    "$date": "2025-05-26T12:29:30.676Z"
+  },
+  "__v": 0
+}]
