@@ -2,25 +2,30 @@ name: Deploy to EC2
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 13.233.154.101 >> ~/.ssh/known_hosts
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
-      - name: SSH and Deploy
+      - name: Deploy to EC2
         run: |
-          ssh root@13.233.154.101 << 'EOF'
-            cd /root/moviu/MoviuPython
-            git pull origin main
-            source venv/bin/activate
-            pm2 restart moviu-app
+          ssh -i ~/.ssh/id_rsa root@${{ secrets.EC2_HOST }} << 'EOF'
+          cd /root/moviu/MoviuPython
+          git pull origin main
+          source venv/bin/activate
+          pip install -r requirements.txt
+          pm2 restart moviu-app || pm2 start start.sh --name moviu-app
           EOF
