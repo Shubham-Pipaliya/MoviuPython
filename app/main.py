@@ -1,4 +1,3 @@
-import redis.client
 from app import db 
 from fastapi import FastAPI, HTTPException
 from app.recommendation_model import load_model, get_top_n, predict_rating
@@ -8,6 +7,7 @@ from app.utils.mongo_data_loader import get_movies_df
 from bson import ObjectId
 from app.utils.mongo_data_loader import get_shows_df
 import redis
+import time
 
 
 app = FastAPI(title="Recommendation API")
@@ -94,16 +94,24 @@ def predict_show(user_id: str, show_id: str):
     rating = predict_show_rating(show_model, user_id, show_id)
     return {"user_id": user_id, "show_id": show_id, "predicted_rating": rating}
 
-import redis
-
 redis_client = redis.Redis(
-    host='127.0.0.1',  # your Ubuntu server IP
+    host='127.0.0.1',
     port=6379,
     decode_responses=True
 )
 
-@app.get("/test")
+@app.get("/RedisTimeingTest")
 def test_redis():
-    redis_client.set('test_key', 'hello')
-    value = redis_client.get('test_key')
-    return {"test_key": value}
+    start = time.time()
+    redis_client.set('test_key1', 'hello1')
+    redis_client.set('test_key2', 'hello2')
+    redis_client.set('test_key3', 'hello3')
+    redis_client.set('test_key4', 'hello4')
+    redis_client.set('test_key5', 'hello5')
+    value = redis_client.get('test_key1')
+    value = redis_client.get('test_key2')
+    value = redis_client.get('test_key3')
+    value = redis_client.get('test_key4')
+    value = redis_client.get('test_key5')
+    duration = time.time() - start
+    return {"test_key1": value,"test_key2": value,"test_key3": value,"test_key4": value,"test_key5": value,"Time:": round(duration, 6)}
