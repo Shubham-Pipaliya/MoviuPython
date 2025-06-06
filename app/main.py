@@ -1,16 +1,23 @@
-from app import db 
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from app import db
 from app.recommendation_model import load_model, get_top_n, predict_rating
 from app.tv_show_recommender import load_show_model, get_top_n_shows, predict_show_rating
 from app.models import Movie, TVShow
-from app.utils.mongo_data_loader import get_movies_df
+from app.utils.mongo_data_loader import get_movies_df, get_shows_df
 from bson import ObjectId
-from app.utils.mongo_data_loader import get_shows_df
 import redis
 import time
 
-
 app = FastAPI(title="Recommendation API")
+
+# --- Mount static directory ---
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/")
+def serve_home():
+    return FileResponse("static/index.html")
 
 # --- Load models at startup ---
 try:
@@ -20,12 +27,10 @@ except Exception as e:
     print("Model loading failed:", e)
     raise
 
-
 # --- Health Check ---
-@app.get("/")
+@app.get("/health")
 def read_root():
     return {"message": "Welcome to the Movie & TV Show Recommendation API"}
-
 
 # --- Movie Recommendation ---
 movies_df = get_movies_df()  # metadata
@@ -60,13 +65,10 @@ def recommend_movies_by_language(language: str, user_id: str, n: int = 10):
         "recommendations": movie_ids
     }
 
-
-
 @app.get("/predict/movie")
 def predict_movie(user_id: str, movie_id: str):
     rating = predict_rating(movie_model, user_id, movie_id)
     return {"user_id": user_id, "movie_id": movie_id, "predicted_rating": rating}
-
 
 # --- TV Show Recommendation ---
 @app.get("/recommend/shows/{language}/{user_id}")
@@ -88,30 +90,40 @@ def recommend_shows_by_language(language: str, user_id: str, n: int = 10):
         "recommendations": [sid for sid, _ in recs]
     }
 
-
 @app.get("/predict/show")
 def predict_show(user_id: str, show_id: str):
     rating = predict_show_rating(show_model, user_id, show_id)
     return {"user_id": user_id, "show_id": show_id, "predicted_rating": rating}
 
+# --- Redis setup ---
 redis_client = redis.Redis(
     host='127.0.0.1',
     port=6379,
     decode_responses=True
 )
 
-@app.get("/RedisTimeingTest")
+@app.get("/RedisTimingTest")
 def test_redis():
     start = time.time()
+
     redis_client.set('test_key1', 'hello1')
     redis_client.set('test_key2', 'hello2')
     redis_client.set('test_key3', 'hello3')
     redis_client.set('test_key4', 'hello4')
     redis_client.set('test_key5', 'hello5')
-    value = redis_client.get('test_key1')
-    value = redis_client.get('test_key2')
-    value = redis_client.get('test_key3')
-    value = redis_client.get('test_key4')
-    value = redis_client.get('test_key5')
+
+    value1 = redis_client.get('test_key1')
+    value2 = redis_client.get('test_key2')
+    value3 = redis_client.get('test_key3')
+    value4 = redis_client.get('test_key4')
+    value5 = redis_client.get('test_key5')
+
     duration = time.time() - start
-    return {"test_key1": value,"test_key2": value,"test_key3": value,"test_key4": value,"test_key5": value,"Time:": round(duration, 6)}
+    return {
+        "test_key1": value1,
+        "test_key2": value2,
+        "test_key3": value3,
+        "test_key4": value4,
+        "test_key5": value5,
+        "duration_in_seconds": round(duration, 6)
+    }

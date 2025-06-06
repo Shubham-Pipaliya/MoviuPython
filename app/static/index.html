@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Recommender</title>
+</head>
+<body>
+  <h2>Get Movie Recommendations</h2>
+  <label>User ID:</label>
+  <input type="text" id="user_id" /><br /><br />
+  <label>Language:</label>
+  <input type="text" id="language" /><br /><br />
+  <button onclick="getRecommendations()">Fetch Recommendations</button>
+
+  <h3>Results:</h3>
+  <pre id="output"></pre>
+
+  <script>
+    async function getRecommendations() {
+      const userId = document.getElementById("user_id").value;
+      const language = document.getElementById("language").value;
+      const output = document.getElementById("output");
+      output.textContent = "Loading...";
+
+      const url = `/recommend/movies/${language}/${userId}`;
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        output.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        output.textContent = "Error: " + err;
+      }
+    }
+  </script>
+</body>
+</html>
