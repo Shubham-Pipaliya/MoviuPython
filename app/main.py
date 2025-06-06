@@ -9,15 +9,18 @@ from app.utils.mongo_data_loader import get_movies_df, get_shows_df
 from bson import ObjectId
 import redis
 import time
+import os
 
 app = FastAPI(title="Recommendation API")
 
-# --- Mount static directory ---
-app.mount("/static", StaticFiles(directory="static"), name="static")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 @app.get("/")
 def serve_home():
-    return FileResponse("static/index.html")
+    return FileResponse(os.path.join(STATIC_DIR, "index.html"))
 
 # --- Load models at startup ---
 try:
@@ -26,7 +29,6 @@ try:
 except Exception as e:
     print("Model loading failed:", e)
     raise
-
 # --- Health Check ---
 @app.get("/health")
 def read_root():
@@ -51,18 +53,20 @@ def recommend_movies_by_language(language: str, user_id: str, n: int = 10):
 
     if not recs:
         trending = movies_df[movies_df['language'].str.lower() == language.lower()]
-        trending_ids = trending['movie_id'].head(n).tolist()
+        trending_data = trending[['movie_id', 'title']].head(n).to_dict(orient='records')
         return {
             "language": language,
             "user_id": user_id,
-            "recommendations": trending_ids
+            "recommendations": trending_data
         }
 
     movie_ids = [mid for mid, _ in recs]
+    movie_names = movies_df[movies_df['movie_id'].isin(movie_ids)][['movie_id', 'title']].to_dict(orient='records')
+
     return {
         "language": language,
         "user_id": user_id,
-        "recommendations": movie_ids
+        "recommendations": movie_names
     }
 
 @app.get("/predict/movie")
@@ -89,7 +93,6 @@ def recommend_shows_by_language(language: str, user_id: str, n: int = 10):
         "user_id": user_id,
         "recommendations": [sid for sid, _ in recs]
     }
-
 @app.get("/predict/show")
 def predict_show(user_id: str, show_id: str):
     rating = predict_show_rating(show_model, user_id, show_id)
