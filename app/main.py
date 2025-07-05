@@ -5,15 +5,18 @@ from app import db
 from app.recommendation_model import load_model, get_top_n, predict_rating
 from app.tv_show_recommender import load_show_model, get_top_n_shows, predict_show_rating
 from app.models import Movie, TVShow
-from app.utils.mongo_data_loader import get_movies_df, get_shows_df
+from app.utils.mongo_data_loader import get_movies_df, get_shows_df, get_followings_df
 from bson import ObjectId
+from app.models import User
+from app.recommendation_model import get_movie_genre_vectors
 from fastapi import APIRouter, Query
 from app.utils.mongo_data_loader import get_movies_df, get_shows_df
-from app.recommendation_model import get_top_n, predict_rating
+from app.recommendation_model import get_top_n, predict_rating, get_fallback_movies_for_user
 from app.tv_show_recommender import get_top_n_shows, predict_show_rating
 import redis
 import time
 import os
+import pandas as pd
 
 app = FastAPI(title="Recommendation API")
 
@@ -24,6 +27,35 @@ STATIC_DIR = os.path.join(BASE_DIR, "static")
 
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
+followings_df = get_followings_df()
+
+GENRE_CSV_PATH = os.path.join(BASE_DIR, "..", "data", "SpakMobileApi.genres.csv")
+genre_df = pd.read_csv(GENRE_CSV_PATH)
+# Normalize all _id values whether they are raw or wrapped
+genre_df["_id"] = genre_df["_id"].astype(str).str.extract(r'([a-f0-9]{24})')
+genre_lookup = dict(zip(genre_df["_id"], genre_df["name"]))
+
+
+def get_user_genres(user_id: str):
+    try:
+        user = User.objects(id=ObjectId(user_id)).first()
+    except Exception as e:
+        print(f"[❌] Invalid user_id format: {user_id} → {e}")
+        return []
+
+    if not user:
+        print(f"[❌] User not found for _id: {user_id}")
+        return []
+
+    if not user.genres:
+        print(f"[⚠] User {user_id} found but has no genres.")
+        return []
+
+    genre_ids = [str(g) for g in user.genres]
+    matched = [genre_lookup.get(gid) for gid in genre_ids if gid in genre_lookup]
+    print(f"[✅] Mapped genre names: {matched}")
+    return matched
+
 @app.get("/")
 def serve_home():
     return FileResponse(os.path.join(STATIC_DIR, "index.html"))
@@ -31,6 +63,7 @@ def serve_home():
 # --- Load models at startup ---
 try:
     movie_model, movie_data, movie_reviews_df = load_model()
+    assert get_movie_genre_vectors() is not None, "❌ movie_genre_vectors failed to initialize"
     show_model, show_data, show_reviews_df = load_show_model()
 except Exception as e:
     print("Model loading failed:", e)
@@ -146,6 +179,7 @@ def get_recommendations(
     n: int = 10
 ):
     if type == "movie":
+        # Try full model recommendation first
         top_n = get_top_n(
             movie_model, movie_data, movie_reviews_df,
             n=n, hybrid=True,
@@ -154,14 +188,68 @@ def get_recommendations(
         )
         recs = top_n.get(user_id)
 
+        # If model fails to return recs
         if not recs:
-            fallback = movies_df[movies_df["language"].str.lower() == language.lower()]
+            preferred_genres = get_user_genres(user_id)
+
+            if preferred_genres:
+                from sklearn.metrics.pairwise import cosine_similarity
+                import numpy as np
+
+                default_vector = np.zeros((1, get_movie_genre_vectors().shape[1]))
+                for genre in preferred_genres:
+                    if genre in get_movie_genre_vectors().columns:
+                        default_vector[0][get_movie_genre_vectors().columns.get_loc(genre)] = 1.0
+
+                candidate_movies = movies_df[
+                    movies_df["language"].str.lower() == language.lower()
+                ].copy()
+                candidate_ids = candidate_movies["movie_id"].tolist()
+                candidate_vectors = get_movie_genre_vectors().loc[
+                    get_movie_genre_vectors().index.intersection(candidate_ids)
+                ]
+                if not candidate_vectors.empty:
+                    similarities = cosine_similarity(default_vector, candidate_vectors.fillna(0).values)[0]
+                    candidate_movies["similarity"] = similarities
+                    top_matches = candidate_movies.sort_values("similarity", ascending=False).head(n)
+
+                    return {
+                        "user_id": user_id,
+                        "type": "movie",
+                        "recommendations": top_matches[["movie_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
+                    }
+
+
+            # 🔁 Otherwise fallback to followings/ratings
+            fallback = get_fallback_movies_for_user(
+                user_id=user_id,
+                language=language,
+                movie_reviews_df=movie_reviews_df,
+                followings_df=followings_df,
+                movies_df=movies_df,
+                n=n
+            )
+            if fallback:
+                return {
+                    "user_id": user_id,
+                    "type": "movie",
+                    "recommendations": fallback
+                }
+
+            # 🔚 Last resort: trending
+            fallback = (
+                movies_df[movies_df["language"].str.lower() == language.lower()]
+                [["movie_id", "title", "genre", "language", "poster_url"]]
+                .head(n)
+                .to_dict(orient="records")
+            )
             return {
                 "user_id": user_id,
                 "type": "movie",
-                "recommendations": fallback[["movie_id", "title", "genre", "language", "poster_url"]].head(n).to_dict(orient="records")
+                "recommendations": fallback
             }
 
+        # ✅ Standard flow if recs exist
         movie_ids = [mid for mid, _ in recs]
         rec_data = movies_df[movies_df["movie_id"].isin(movie_ids)]
         return {
@@ -169,7 +257,6 @@ def get_recommendations(
             "type": "movie",
             "recommendations": rec_data[["movie_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
         }
-
 
     elif type == "show":
         shows_df = get_shows_df()
@@ -198,9 +285,13 @@ def get_recommendations(
             "recommendations": rec_data[["show_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
         }
 
-
+print(genre_df.head(1))
+print("User genre names:", get_user_genres("67977895dee8c7cd3de1d9bb"))
 print("BASE_DIR:", BASE_DIR)
 print("STATIC_DIR:", STATIC_DIR)
 print("Static Files:", os.listdir(STATIC_DIR))
+print("Genre vector columns:", list(get_movie_genre_vectors().columns))
+print("[✅] movie_genre_vectors shape:", get_movie_genre_vectors().shape)
+
 
 app.include_router(api_v1)

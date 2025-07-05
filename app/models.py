@@ -1,4 +1,4 @@
-from mongoengine import Document, StringField, FloatField, BooleanField
+from mongoengine import Document, StringField, FloatField, BooleanField, ListField, ObjectIdField
 
 class Movie(Document):
     meta = {
@@ -48,3 +48,12 @@ class Following(Document):
     }
     userId = StringField(required=True)
     followingId = StringField(required=True)
+class User(Document):
+    username = StringField()
+    email = StringField()
+    genres = ListField(ObjectIdField())  # ✅ fix
+
+    meta = {
+        "collection": "users",
+        "strict": False
+    }

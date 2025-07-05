@@ -6,7 +6,8 @@ from app.models import (
     TVShow,
     MovieReview,  # ✅ fix here
     ReviewShow,
-    Following
+    Following,
+    User
 )
 
 # --- Load movie reviews ---
@@ -61,3 +62,9 @@ def get_followings_df():
         "user": f.userId,
         "following": f.followingId
     } for f in followings])
+
+# --- Load User data ---
+
+def get_user_genres(user_id: str):
+    user = User.objects(id=user_id).first()
+    return user.genres if user and user.genres else []
