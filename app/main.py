@@ -7,11 +7,17 @@ from app.tv_show_recommender import load_show_model, get_top_n_shows, predict_sh
 from app.models import Movie, TVShow
 from app.utils.mongo_data_loader import get_movies_df, get_shows_df
 from bson import ObjectId
+from fastapi import APIRouter, Query
+from app.utils.mongo_data_loader import get_movies_df, get_shows_df
+from app.recommendation_model import get_top_n, predict_rating
+from app.tv_show_recommender import get_top_n_shows, predict_show_rating
 import redis
 import time
 import os
 
 app = FastAPI(title="Recommendation API")
+
+api_v1 = APIRouter(prefix="/api/v1")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, "static")
@@ -130,3 +136,62 @@ def test_redis():
         "test_key5": value5,
         "duration_in_seconds": round(duration, 6)
     }
+
+
+@api_v1.get("/recommendations")
+def get_recommendations(
+    user_id: str = Query(...),
+    type: str = Query(..., regex="^(movie|show)$"),
+    language: str = Query(...),
+    n: int = 10
+):
+    if type == "movie":
+        top_n = get_top_n(
+            movie_model, movie_data, movie_reviews_df,
+            n=n, hybrid=True,
+            language_filter=language,
+            metadata_df=movies_df
+        )
+        recs = top_n.get(user_id)
+
+        if not recs:
+            fallback = movies_df[movies_df["language"].str.lower() == language.lower()]
+            return {
+                "user_id": user_id,
+                "type": "movie",
+                "recommendations": fallback[["movie_id", "title", "genre", "language"]].head(n).to_dict(orient="records")
+            }
+
+        movie_ids = [mid for mid, _ in recs]
+        rec_data = movies_df[movies_df["movie_id"].isin(movie_ids)]
+        return {
+            "user_id": user_id,
+            "type": "movie",
+            "recommendations": rec_data[["movie_id", "title", "genre", "language"]].to_dict(orient="records")
+        }
+
+    elif type == "show":
+        shows_df = get_shows_df()
+        top_n = get_top_n_shows(
+            show_model, show_data, show_reviews_df,
+            n=n, hybrid=True,
+            language_filter=language,
+            metadata_df=shows_df
+        )
+        recs = top_n.get(user_id)
+
+        if not recs:
+            fallback = shows_df[shows_df["language"].str.lower() == language.lower()]
+            return {
+                "user_id": user_id,
+                "type": "show",
+                "recommendations": fallback[["show_id", "title", "genre", "language"]].head(n).to_dict(orient="records")
+            }
+
+        show_ids = [sid for sid in recs]
+        rec_data = shows_df[shows_df["show_id"].isin(show_ids)]
+        return {
+            "user_id": user_id,
+            "type": "show",
+            "recommendations": rec_data[["show_id", "title", "genre", "language"]].to_dict(orient="records")
+        }
