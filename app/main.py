@@ -159,7 +159,7 @@ def get_recommendations(
             return {
                 "user_id": user_id,
                 "type": "movie",
-                "recommendations": fallback[["movie_id", "title", "genre", "language"]].head(n).to_dict(orient="records")
+                "recommendations": fallback[["movie_id", "title", "genre", "language", "poster_url"]].head(n).to_dict(orient="records")
             }
 
         movie_ids = [mid for mid, _ in recs]
@@ -167,8 +167,9 @@ def get_recommendations(
         return {
             "user_id": user_id,
             "type": "movie",
-            "recommendations": rec_data[["movie_id", "title", "genre", "language"]].to_dict(orient="records")
+            "recommendations": rec_data[["movie_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
         }
+
 
     elif type == "show":
         shows_df = get_shows_df()
@@ -190,8 +191,16 @@ def get_recommendations(
 
         show_ids = [sid for sid in recs]
         rec_data = shows_df[shows_df["show_id"].isin(show_ids)]
+
         return {
             "user_id": user_id,
             "type": "show",
             "recommendations": rec_data[["show_id", "title", "genre", "language"]].to_dict(orient="records")
         }
+
+
+print("BASE_DIR:", BASE_DIR)
+print("STATIC_DIR:", STATIC_DIR)
+print("Static Files:", os.listdir(STATIC_DIR))
+
+app.include_router(api_v1)

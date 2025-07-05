@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 from app import db  # ensure connection is triggered
 from app.models import (
     Movie,
@@ -26,6 +27,11 @@ def get_review_shows_df():
         "rating": r.rating
     } for r in reviews])
 
+
+def slugify(text):
+    text = re.sub(r'[^a-zA-Z0-9]+', '-', text.lower()).strip('-')
+    return text
+
 # --- Load movie metadata ---
 def get_movies_df():
     movies = Movie.objects.only("id", "title", "genre", "language")
@@ -33,7 +39,8 @@ def get_movies_df():
         "movie_id": str(m.id),
         "title": m.title,
         "genre": m.genre or "",
-        "language": m.language or ""
+        "language": m.language or "",
+        "poster_url": f"https://d36dptol9hi920.cloudfront.net/movies/{slugify(m.title)}-poster.jpg"
     } for m in movies])
 
 # --- Load show metadata ---
