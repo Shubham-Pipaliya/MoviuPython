@@ -186,7 +186,7 @@ def get_recommendations(
             return {
                 "user_id": user_id,
                 "type": "show",
-                "recommendations": fallback[["show_id", "title", "genre", "language"]].head(n).to_dict(orient="records")
+                "recommendations": fallback[["show_id", "title", "genre", "language", "poster_url"]].head(n).to_dict(orient="records")
             }
 
         show_ids = [sid for sid in recs]
@@ -195,7 +195,7 @@ def get_recommendations(
         return {
             "user_id": user_id,
             "type": "show",
-            "recommendations": rec_data[["show_id", "title", "genre", "language"]].to_dict(orient="records")
+            "recommendations": rec_data[["show_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
         }
 
 

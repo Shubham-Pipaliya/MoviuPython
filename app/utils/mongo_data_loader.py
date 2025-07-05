@@ -50,7 +50,8 @@ def get_shows_df():
         "show_id": str(s.id),
         "title": s.title,
         "genre": s.genre or "",
-        "language": s.language or ""
+        "language": s.language or "",
+        "poster_url": f"https://d36dptol9hi920.cloudfront.net/shows/{slugify(s.title)}-poster.jpg"
     } for s in shows])
 
 # --- Load followings ---
