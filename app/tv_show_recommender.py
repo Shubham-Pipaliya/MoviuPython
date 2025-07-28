@@ -116,6 +116,62 @@ def get_top_n_shows(algo, data, df_reviews, n=10, hybrid=True, language_filter=N
 
     return top_n
 
+def get_fallback_shows_for_user(user_id, language, show_reviews_df, followings_df, show_df, n=10):
+    global show_genre_vectors
+
+    # Followings-based fallback
+    followings = followings_df[followings_df["user"] == user_id]["following"].tolist()
+    if followings:
+        peer_reviews = show_reviews_df[show_reviews_df["user"].isin(followings)]
+        peer_shows = peer_reviews.merge(show_df, left_on="show", right_on="show_id")
+        peer_shows = peer_shows[peer_shows["language"].str.lower() == language.lower()]
+        if not peer_shows.empty:
+            top_peer_shows = (
+                peer_shows.groupby(["show_id", "title", "genre", "language", "poster_url"])
+                .agg(avg_rating=("rating", "mean"))
+                .reset_index()
+                .sort_values("avg_rating", ascending=False)
+                .head(n)
+            )
+            return top_peer_shows.to_dict(orient="records")
+
+    # Genre-based fallback (real user vector or default)
+    user_rated = show_reviews_df[(show_reviews_df["user"] == user_id) & (show_reviews_df["rating"] >= 4.0)]
+
+    if not user_rated.empty:
+        rated_vectors = show_genre_vectors.loc[
+            show_genre_vectors.index.intersection(user_rated["show"])
+        ].values
+        user_vector = np.nan_to_num(np.mean(rated_vectors, axis=0)).reshape(1, -1)
+    else:
+        # Default genre vector
+        default_genres = ["Action", "Thriller", "Drama"]
+        default_vector = np.zeros((1, show_genre_vectors.shape[1]))
+        for genre in default_genres:
+            if genre in show_genre_vectors.columns:
+                default_vector[0][show_genre_vectors.columns.get_loc(genre)] = 1.0
+        user_vector = default_vector
+
+    # Candidate shows by language
+    candidate_shows = show_df[
+        show_df["language"].str.lower() == language.lower()
+    ].copy()
+
+    candidate_ids = candidate_shows["show_id"].tolist()
+    candidate_vectors = show_genre_vectors.loc[
+        show_genre_vectors.index.intersection(candidate_ids)
+    ]
+
+    if candidate_vectors.empty:
+        return None
+
+    # Compute genre similarity
+    similarities = cosine_similarity(user_vector, candidate_vectors.fillna(0).values)[0]
+    candidate_shows["similarity"] = similarities
+    fallback = candidate_shows.sort_values("similarity", ascending=False).head(n)
+
+    return fallback[["show_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
+
 
 def predict_show_rating(algo, user_id, show_id):
     pred = algo.predict(uid=str(user_id), iid=str(show_id))

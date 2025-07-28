@@ -57,3 +57,11 @@ class User(Document):
         "collection": "users",
         "strict": False
     }
+
+
+class Genre(Document):
+    name = StringField(required=True)
+    meta = {
+        "collection": "genres",
+        "strict": False
+    }

@@ -2,21 +2,23 @@ from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from app import db
-from app.recommendation_model import load_model, get_top_n, predict_rating
 from app.tv_show_recommender import load_show_model, get_top_n_shows, predict_show_rating
-from app.models import Movie, TVShow
 from app.utils.mongo_data_loader import get_movies_df, get_shows_df, get_followings_df
+# from app.utils.mongo_data_loader import get_review_shows_df
+from app.utils.mongo_data_loader import get_review_shows_df
 from bson import ObjectId
-from app.models import User
-from app.recommendation_model import get_movie_genre_vectors
 from fastapi import APIRouter, Query
 from app.utils.mongo_data_loader import get_movies_df, get_shows_df
-from app.recommendation_model import get_top_n, predict_rating, get_fallback_movies_for_user
 from app.tv_show_recommender import get_top_n_shows, predict_show_rating
+from app.models import Genre
 import redis
 import time
 import os
+import numpy as np
 import pandas as pd
+from app.recommendation_model import load_model, get_top_n, predict_rating, get_fallback_movies_for_user, get_movie_genre_vectors
+from app.models import Movie, TVShow, User
+from sklearn.metrics.pairwise import cosine_similarity
 
 app = FastAPI(title="Recommendation API")
 
@@ -285,6 +287,103 @@ def get_recommendations(
             "recommendations": rec_data[["show_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
         }
 
+followings_df = get_followings_df()
+movies_df = get_movies_df()
+shows_df = get_shows_df()
+# show_reviews_df = get_review_shows_df()
+
+
+@app.get("/home/sections")
+def get_home_sections(user_id: str = Query(...), language: str = Query("English")):
+    print("[DEBUG] using hybrid recommender for home/sections")
+
+    def get_user_genres(user_id: str):
+        try:
+            user = User.objects(id=ObjectId(user_id)).first()
+            if not user or not user.genres:
+                return []
+            genre_objs = Genre.objects(id__in=user.genres).only("name")
+            return [g.name for g in genre_objs if g.name]
+        except Exception:
+            return []
+
+    def get_default_vector(preferred_genres):
+        default_vector = np.zeros((1, get_movie_genre_vectors().shape[1]))
+        for genre in preferred_genres:
+            if genre in get_movie_genre_vectors().columns:
+                idx = get_movie_genre_vectors().columns.get_loc(genre)
+                default_vector[0][idx] = 1.0
+        return default_vector
+
+    def genre_based_recommendations():
+        preferred_genres = get_user_genres(user_id)
+        print("[✅] Mapped genre names:", preferred_genres)
+        if not preferred_genres:
+            return []
+        default_vector = get_default_vector(preferred_genres)
+        candidate_movies = movies_df[movies_df["language"].str.lower() == language.lower()].copy()
+        candidate_ids = candidate_movies["movie_id"].tolist()
+        candidate_vectors = get_movie_genre_vectors().loc[get_movie_genre_vectors().index.intersection(candidate_ids)]
+        if candidate_vectors.empty:
+            return []
+        similarities = cosine_similarity(default_vector, candidate_vectors.fillna(0).values)[0]
+        candidate_movies["similarity"] = similarities
+        return candidate_movies.sort_values("similarity", ascending=False).head(10).to_dict(orient="records")
+
+    def fallback_movies():
+        return (
+            movies_df[movies_df["language"].str.lower() == language.lower()][["movie_id", "title", "genre", "language", "poster_url"]]
+            .head(10)
+            .to_dict(orient="records")
+        )
+
+    def fallback_show():
+        return (
+            shows_df[shows_df["language"].str.lower() == language.lower()][["show_id", "title", "genre", "language", "poster_url"]]
+            .head(10)
+            .to_dict(orient="records")
+        )
+    
+    def get_recommended_movies():
+        top_n = get_top_n(
+            movie_model, movie_data, movie_reviews_df,
+            n=10, hybrid=True,
+            language_filter=language,
+            metadata_df=movies_df
+        )
+        recs = top_n.get(user_id)
+        if recs:
+            movie_ids = [mid for mid, _ in recs]
+            return movies_df[movies_df["movie_id"].isin(movie_ids)][["movie_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
+        genre_based = genre_based_recommendations()
+        return genre_based if genre_based else fallback_movies()
+
+    def get_recommended_shows():
+        top_n = get_top_n_shows(
+            show_model, show_data, show_reviews_df,
+            n=10, hybrid=True,
+            language_filter=language,
+            metadata_df=shows_df
+        )
+        recs = top_n.get(user_id)
+        if recs:
+            show_ids = [sid for sid in recs]
+            return shows_df[shows_df["show_id"].isin(show_ids)][["show_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
+        genre_based = genre_based_recommendations()
+        return genre_based if genre_based else fallback_show(shows_df, key="show_id")
+    return {
+        "user_id": user_id,
+        "trending_movies": get_recommended_movies(),
+        "trending_shows": get_recommended_shows(),
+        "must_watch": [],
+        "top_movies": [],
+        "top_shows": [],
+        "coming_soon": [],
+        "newly_launched": [],
+        "trending_trailers": []
+    }
+   
+
 print(genre_df.head(1))
 print("User genre names:", get_user_genres("67977895dee8c7cd3de1d9bb"))
 print("BASE_DIR:", BASE_DIR)
@@ -292,6 +391,5 @@ print("STATIC_DIR:", STATIC_DIR)
 print("Static Files:", os.listdir(STATIC_DIR))
 print("Genre vector columns:", list(get_movie_genre_vectors().columns))
 print("[✅] movie_genre_vectors shape:", get_movie_genre_vectors().shape)
-
 
 app.include_router(api_v1)

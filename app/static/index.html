@@ -1,49 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie App Home</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    h2 { margin-top: 40px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
+      padding: 16px 0;
+    }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .title { padding: 8px; font-weight: bold; }
+  </style>
 </head>
-  <h2>Get Movie Recommendations</h2>
+<body>
+  <h1>🎬 Movie App Home</h1>
+  <p id="status">Loading...</p>
 
-  <label for="user_id">User ID:</label>
-  <input type="text" id="user_id" placeholder="e.g., 123" /><br /> <br />
-
-  <label for="language">Language:</label>
-  <input type="text" id="language" placeholder="e.g., english" /><br /><br />
-
-  <button onclick="getRecommendations()">Fetch Recommendations</button>
-
-  <h3>Results:</h3>
-  <pre id="output"></pre>
+  <div id="sections"></div>
 
   <script>
-    async function getRecommendations() {
-      const userId = document.getElementById("user_id").value.trim();
-      const language = document.getElementById("language").value.trim();
-      const output = document.getElementById("output");
-      output.textContent = "Loading...";
+    const sectionTitles = {
+      trending_movies: "🔥 Trending Movies",
+      trending_shows: "🔥 Trending Shows",
+      must_watch: "⭐ Must Watch",
+      top_movies: "🏆 Top 10 Movies",
+      top_shows: "🏆 Top 10 Shows",
+      coming_soon: "🎬 Coming Soon",
+      newly_launched: "🆕 Newly Launched",
+      trending_trailers: "🎞 Trending Trailers"
+    };
 
-      if (!userId || !language) {
-        output.textContent = "Please enter both User ID and Language.";
-        return;
-      }
+    function createCard(item) {
+      return `
+        <div class="card">
+          <img src="${item.poster_url || 'https://via.placeholder.com/150'}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/150'"/>
+          <div class="title">${item.title}</div>
+        </div>
+      `;
+    }
 
-      const url = `/recommend/movies/${language}/${userId}`;
+    function renderSection(name, items) {
+      const container = document.createElement("div");
+      container.innerHTML = `<h2>${sectionTitles[name]}</h2>`;
+
+      const grid = document.createElement("div");
+      grid.className = "grid";
+      grid.innerHTML = items.map(createCard).join("");
+
+      container.appendChild(grid);
+      document.getElementById("sections").appendChild(container);
+    }
+
+    async function loadSections() {
       try {
-        const res = await fetch(url);
+        const res = await fetch("/home/sections?user_id=67978394dee8c7cd3de2331b&language=English");
         const data = await res.json();
+        document.getElementById("status").style.display = "none";
 
-        if (!Array.isArray(data.recommendations) || data.recommendations.length === 0) {
-          output.textContent = "No recommendations found.";
-          return;
-        }
-
-        let result = `Recommended Movies for ${data.user_id} (Language: ${data.language}):\n\n`;
-        data.recommendations.forEach(movie => {
-          result += `• ${movie.title} (ID: ${movie.movie_id})\n`;
+        Object.entries(data).forEach(([key, items]) => {
+          if (items && items.length) {
+            renderSection(key, items);
+          }
         });
 
-        output.textContent = result;
       } catch (err) {
-        output.textContent = "Error: " + err;
+        document.getElementById("status").textContent = "❌ Failed to load sections: " + err.message;
       }
     }
+
+    loadSections();
   </script>
 </body>
 </html>

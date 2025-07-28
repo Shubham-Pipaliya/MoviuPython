@@ -19,6 +19,10 @@ def get_reviews_df():
         "rating": r.rating
     } for r in review_qs])
 
+def slugify(text):
+    text = re.sub(r'[^a-zA-Z0-9]+', '-', text.lower()).strip('-')
+    return text
+
 # --- Load TV show reviews ---
 def get_review_shows_df():
     reviews = ReviewShow.objects(is_deleted=False).only("user", "show", "rating")
@@ -27,11 +31,6 @@ def get_review_shows_df():
         "show": r.show,
         "rating": r.rating
     } for r in reviews])
-
-
-def slugify(text):
-    text = re.sub(r'[^a-zA-Z0-9]+', '-', text.lower()).strip('-')
-    return text
 
 # --- Load movie metadata ---
 def get_movies_df():
@@ -47,7 +46,7 @@ def get_movies_df():
 # --- Load show metadata ---
 def get_shows_df():
     shows = TVShow.objects.only("id", "title", "genre", "language")
-    return pd.DataFrame([{
+    return pd.DataFrame([{  
         "show_id": str(s.id),
         "title": s.title,
         "genre": s.genre or "",
