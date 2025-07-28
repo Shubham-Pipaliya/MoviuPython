@@ -371,11 +371,31 @@ def get_home_sections(user_id: str = Query(...), language: str = Query("English"
             return shows_df[shows_df["show_id"].isin(show_ids)][["show_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
         genre_based = genre_based_recommendations()
         return genre_based if genre_based else fallback_show(shows_df, key="show_id")
+    
+    def get_must_watch():
+        agg = movie_reviews_df.groupby("movie").agg(
+            avg_rating=("rating", "mean"),
+            count=("rating", "count")
+        )
+
+        # Adjust threshold if needed
+        filtered = agg[(agg["avg_rating"] >= 4.5) & (agg["count"] >= 3)].reset_index()
+
+        # Ensure type consistency for matching
+        filtered_ids = filtered["movie"].astype(str)
+
+        must_watch_movies = movies_df[movies_df["movie_id"].isin(filtered_ids)][
+            ["movie_id", "title", "genre", "language", "poster_url"]
+        ]
+
+        return must_watch_movies.to_dict(orient="records")
+
+            
     return {
         "user_id": user_id,
         "trending_movies": get_recommended_movies(),
         "trending_shows": get_recommended_shows(),
-        "must_watch": [],
+        "must_watch": get_must_watch(),
         "top_movies": [],
         "top_shows": [],
         "coming_soon": [],
