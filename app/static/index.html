@@ -57,7 +57,7 @@
 
     function renderSection(name, items) {
       const container = document.createElement("div");
-      container.innerHTML = `<h2>${sectionTitles[name]}</h2>`;
+      container.innerHTML = `<h2>${sectionTitles[name] || name}</h2>`;
 
       const grid = document.createElement("div");
       grid.className = "grid";
@@ -73,9 +73,10 @@
         const data = await res.json();
         document.getElementById("status").style.display = "none";
 
-        Object.entries(data).forEach(([key, items]) => {
-          if (items && items.length) {
-            renderSection(key, items);
+        const knownSections = Object.keys(sectionTitles);
+        knownSections.forEach((key) => {
+          if (data[key] && data[key].length) {
+            renderSection(key, data[key]);
           }
         });
 

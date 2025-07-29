@@ -8,6 +8,7 @@ class Movie(Document):
     title = StringField(required=True)
     genre = StringField()
     language = StringField()
+    release_date = StringField()  # ✅ added for consistency
     rating = FloatField(default=0.0)  # ✅ added for consistency
 
 
@@ -30,6 +31,7 @@ class TVShow(Document):
     title = StringField(required=True)
     genre = StringField()
     language = StringField()
+    release_date = StringField()  # ✅ added for consistency
     rating = FloatField(default=0.0)  # ✅ added for consistency
 
 

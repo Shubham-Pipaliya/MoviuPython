@@ -176,3 +176,8 @@ def get_fallback_shows_for_user(user_id, language, show_reviews_df, followings_d
 def predict_show_rating(algo, user_id, show_id):
     pred = algo.predict(uid=str(user_id), iid=str(show_id))
     return pred.est
+
+def get_show_genre_vectors():
+    global show_genre_vectors
+    return show_genre_vectors
+

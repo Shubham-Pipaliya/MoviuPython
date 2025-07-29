@@ -38,6 +38,7 @@ def get_movies_df():
     return pd.DataFrame([{
         "movie_id": str(m.id),
         "title": m.title,
+        "release_date": m.release_date or "",  # ✅ added for consistency
         "rating": m.rating or 0.0,  # ✅ added for consistency
         "genre": m.genre or "",
         "language": m.language or "",
@@ -50,6 +51,7 @@ def get_shows_df():
     return pd.DataFrame([{  
         "show_id": str(s.id),
         "title": s.title,
+        "release_date": s.release_date or "",  # ✅ added for consistency
         "rating": s.rating or 0.0,  # ✅ added for consistency
         "genre": s.genre or "",
         "language": s.language or "",
