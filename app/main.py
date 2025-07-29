@@ -75,102 +75,102 @@ except Exception as e:
 def read_root():
     return {"message": "Welcome to the Movie & TV Show Recommendation API"}
 
-# --- Movie Recommendation ---
-movies_df = get_movies_df()  # metadata
+# # --- Movie Recommendation ---
+# movies_df = get_movies_df()  # metadata
 
-@app.get("/recommend/movies/{language}/{user_id}")
-def recommend_movies_by_language(language: str, user_id: str, n: int = 10):
-    top_n_lang = get_top_n(
-        movie_model,
-        movie_data,
-        movie_reviews_df,
-        n=n,
-        hybrid=True,
-        language_filter=language,
-        metadata_df=movies_df
-    )
+# @app.get("/recommend/movies/{language}/{user_id}")
+# def recommend_movies_by_language(language: str, user_id: str, n: int = 10):
+#     top_n_lang = get_top_n(
+#         movie_model,
+#         movie_data,
+#         movie_reviews_df,
+#         n=n,
+#         hybrid=True,
+#         language_filter=language,
+#         metadata_df=movies_df
+#     )
 
-    recs = top_n_lang.get(user_id)
+#     recs = top_n_lang.get(user_id)
 
-    if not recs:
-        trending = movies_df[movies_df['language'].str.lower() == language.lower()]
-        trending_data = trending[['movie_id', 'title']].head(n).to_dict(orient='records')
-        return {
-            "language": language,
-            "user_id": user_id,
-            "recommendations": trending_data
-        }
+#     if not recs:
+#         trending = movies_df[movies_df['language'].str.lower() == language.lower()]
+#         trending_data = trending[['movie_id', 'title']].head(n).to_dict(orient='records')
+#         return {
+#             "language": language,
+#             "user_id": user_id,
+#             "recommendations": trending_data
+#         }
 
-    movie_ids = [mid for mid, _ in recs]
-    movie_names = movies_df[movies_df['movie_id'].isin(movie_ids)][['movie_id', 'title']].to_dict(orient='records')
+#     movie_ids = [mid for mid, _ in recs]
+#     movie_names = movies_df[movies_df['movie_id'].isin(movie_ids)][['movie_id', 'title']].to_dict(orient='records')
 
-    return {
-        "language": language,
-        "user_id": user_id,
-        "recommendations": movie_names
-    }
+#     return {
+#         "language": language,
+#         "user_id": user_id,
+#         "recommendations": movie_names
+#     }
 
-@app.get("/predict/movie")
-def predict_movie(user_id: str, movie_id: str):
-    rating = predict_rating(movie_model, user_id, movie_id)
-    return {"user_id": user_id, "movie_id": movie_id, "predicted_rating": rating}
+# @app.get("/predict/movie")
+# def predict_movie(user_id: str, movie_id: str):
+#     rating = predict_rating(movie_model, user_id, movie_id)
+#     return {"user_id": user_id, "movie_id": movie_id, "predicted_rating": rating}
 
-# --- TV Show Recommendation ---
-@app.get("/recommend/shows/{language}/{user_id}")
-def recommend_shows_by_language(language: str, user_id: str, n: int = 10):
-    top_n_lang = get_top_n_shows(
-        show_model, show_data, show_reviews_df,
-        n=n, hybrid=True,
-        language_filter=language,
-        metadata_df=get_shows_df()
-    )
+# # --- TV Show Recommendation ---
+# @app.get("/recommend/shows/{language}/{user_id}")
+# def recommend_shows_by_language(language: str, user_id: str, n: int = 10):
+#     top_n_lang = get_top_n_shows(
+#         show_model, show_data, show_reviews_df,
+#         n=n, hybrid=True,
+#         language_filter=language,
+#         metadata_df=get_shows_df()
+#     )
 
-    recs = top_n_lang.get(user_id)
-    if not recs:
-        raise HTTPException(status_code=404, detail=f"No {language.title()} TV show recommendations found.")
+#     recs = top_n_lang.get(user_id)
+#     if not recs:
+#         raise HTTPException(status_code=404, detail=f"No {language.title()} TV show recommendations found.")
 
-    return {
-        "language": language,
-        "user_id": user_id,
-        "recommendations": [sid for sid, _ in recs]
-    }
-@app.get("/predict/show")
-def predict_show(user_id: str, show_id: str):
-    rating = predict_show_rating(show_model, user_id, show_id)
-    return {"user_id": user_id, "show_id": show_id, "predicted_rating": rating}
+#     return {
+#         "language": language,
+#         "user_id": user_id,
+#         "recommendations": [sid for sid, _ in recs]
+#     }
+# @app.get("/predict/show")
+# def predict_show(user_id: str, show_id: str):
+#     rating = predict_show_rating(show_model, user_id, show_id)
+#     return {"user_id": user_id, "show_id": show_id, "predicted_rating": rating}
 
-# --- Redis setup ---
-redis_client = redis.Redis(
-    host='127.0.0.1',
-    port=6379,
-    decode_responses=True
-)
+# # --- Redis setup ---
+# redis_client = redis.Redis(
+#     host='127.0.0.1',
+#     port=6379,
+#     decode_responses=True
+# )
 
-@app.get("/RedisTimingTest")
-def test_redis():
-    start = time.time()
+# @app.get("/RedisTimingTest")
+# def test_redis():
+#     start = time.time()
 
-    redis_client.set('test_key1', 'hello1')
-    redis_client.set('test_key2', 'hello2')
-    redis_client.set('test_key3', 'hello3')
-    redis_client.set('test_key4', 'hello4')
-    redis_client.set('test_key5', 'hello5')
+#     redis_client.set('test_key1', 'hello1')
+#     redis_client.set('test_key2', 'hello2')
+#     redis_client.set('test_key3', 'hello3')
+#     redis_client.set('test_key4', 'hello4')
+#     redis_client.set('test_key5', 'hello5')
 
-    value1 = redis_client.get('test_key1')
-    value2 = redis_client.get('test_key2')
-    value3 = redis_client.get('test_key3')
-    value4 = redis_client.get('test_key4')
-    value5 = redis_client.get('test_key5')
+#     value1 = redis_client.get('test_key1')
+#     value2 = redis_client.get('test_key2')
+#     value3 = redis_client.get('test_key3')
+#     value4 = redis_client.get('test_key4')
+#     value5 = redis_client.get('test_key5')
 
-    duration = time.time() - start
-    return {
-        "test_key1": value1,
-        "test_key2": value2,
-        "test_key3": value3,
-        "test_key4": value4,
-        "test_key5": value5,
-        "duration_in_seconds": round(duration, 6)
-    }
+#     duration = time.time() - start
+#     return {
+#         "test_key1": value1,
+#         "test_key2": value2,
+#         "test_key3": value3,
+#         "test_key4": value4,
+#         "test_key5": value5,
+#         "duration_in_seconds": round(duration, 6)
+#     }
 
 
 @api_v1.get("/recommendations")
@@ -390,14 +390,21 @@ def get_home_sections(user_id: str = Query(...), language: str = Query("English"
 
         return must_watch_movies.to_dict(orient="records")
 
+    def top_movies():
+        top_movies = movies_df.sort_values("rating", ascending=False).head(10)
+        return top_movies[["movie_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
+    
+    def top_shows():
+        top_shows = shows_df.sort_values("rating", ascending=False).head(10)
+        return top_shows[["show_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
             
     return {
         "user_id": user_id,
         "trending_movies": get_recommended_movies(),
         "trending_shows": get_recommended_shows(),
         "must_watch": get_must_watch(),
-        "top_movies": [],
-        "top_shows": [],
+        "top_movies": top_movies(),
+        "top_shows": top_shows(),
         "coming_soon": [],
         "newly_launched": [],
         "trending_trailers": []
