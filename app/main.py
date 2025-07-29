@@ -9,6 +9,7 @@ from app.utils.mongo_data_loader import get_movies_df, get_shows_df, get_followi
 from bson import ObjectId
 import redis
 import time
+from datetime import timedelta
 import os
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
@@ -137,16 +138,59 @@ def get_home_sections(user_id: str = Query(...), language: str = Query("English"
         if "release_date" not in movies_df.columns:
             print("[⚠] No 'release_date' column found in movies_df.")
             return []
-        movies_df["release_date"] = pd.to_datetime(movies_df["release_date"], errors="coerce")
-        upcoming = movies_df[
-            (movies_df["release_date"] > datetime.now()) &
-            (movies_df["language"].str.lower() == language.lower())
+        print(movies_df["release_date"].value_counts(dropna=False).head(10))
+        # Convert release_date to datetime
+        df = movies_df.copy()
+        future_idx = movies_df.sample(10, random_state=42).index
+        # Inject release dates 5 to 60 days in the future
+        movies_df.loc[future_idx, "release_date"] = [
+            (datetime.now() + timedelta(days=i)).strftime("%Y-%m-%d")
+            for i in range(5, 65, 6)
+        ]
+        df["release_date"] = pd.to_datetime(df["release_date"], errors="coerce")
+
+        # Filter upcoming releases
+        now = datetime.now()
+        upcoming = df[
+            (df["release_date"] > now) &
+            (df["language"].str.lower() == language.lower())
         ].sort_values("release_date")
+
         if upcoming.empty:
             print("[ℹ] No upcoming movies found.")
             return []
+
         upcoming["poster_url"] = upcoming["poster_url"].fillna("https://example.com/default-poster.jpg")
+
         return upcoming[["movie_id", "title", "genre", "language", "poster_url"]].head(10).to_dict(orient="records")
+
+    def newly_launched():
+        # Placeholder for newly launched content
+        if "release_date" not in shows_df.columns:
+            print("[⚠] No 'release_date' column found in shows_df.")
+            return []
+        print(shows_df["release_date"].value_counts(dropna=False).head(10))
+        # Convert release_date to datetime
+        df = shows_df.copy()
+        future_idx = shows_df.sample(10, random_state=42).index
+        # Inject release dates 5 to 60 days in the future
+        shows_df.loc[future_idx, "release_date"] = [
+            (datetime.now() + timedelta(days=i)).strftime("%Y-%m-%d")
+            for i in range(5, 65, 6)
+        ]
+        
+        df["release_date"] = pd.to_datetime(df["release_date"], errors="coerce")
+        # Filter newly launched shows
+        now = datetime.now()
+        newly_launched = df[
+            (df["release_date"] > now) &
+            (df["language"].str.lower() == language.lower())
+        ].sort_values("release_date")
+        if newly_launched.empty:
+            print("[ℹ] No newly launched shows found.")
+            return []
+        newly_launched["poster_url"] = newly_launched["poster_url"].fillna("https://example.com/default-poster.jpg")
+        return newly_launched[["show_id", "title", "genre", "language", "poster_url"]].head(10).to_dict(orient="records")
 
     return {
         "user_id": user_id,
@@ -156,6 +200,6 @@ def get_home_sections(user_id: str = Query(...), language: str = Query("English"
         "top_movies": top_movies(),
         "top_shows": top_shows(),
         "coming_soon": coming_soon(),
-        "newly_launched": [],
+        "newly_launched": newly_launched(),
         "trending_trailers": []
     }
