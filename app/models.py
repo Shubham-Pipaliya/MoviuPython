@@ -1,15 +1,29 @@
-from mongoengine import Document, StringField, FloatField, BooleanField, ListField, ObjectIdField
+from mongoengine import (
+    Document, StringField, FloatField, BooleanField,
+    ListField, DateTimeField, IntField, ObjectIdField
+)
 
 class Movie(Document):
-    meta = {
-        'collection': 'movies',
-        'db_alias': 'default'  # ✅ REQUIRED
-    }
-    title = StringField(required=True)
-    genre = StringField()
-    language = StringField()
-    release_date = StringField()  # ✅ added for consistency
-    rating = FloatField(default=0.0)  # ✅ added for consistency
+    meta = {'collection': 'movies', 'db_alias': 'default', 'strict': False}
+    title           = StringField(required=True)
+    description     = StringField()
+    release_date    = DateTimeField()
+    genre           = StringField()
+    director        = StringField()
+    writer          = StringField()
+    cast            = ListField(StringField())
+    banner_url      = StringField()
+    poster_url      = StringField()
+    test_poster_url = StringField()
+    rating          = FloatField(default=0.0)
+    language        = StringField()
+    runtime         = IntField()
+    is_deleted      = BooleanField(default=False)
+    deleted_at      = DateTimeField()
+    created_at      = DateTimeField()
+    updated_at      = DateTimeField()
+    __v             = IntField()
+    trailer_url     = StringField()
 
 
 class MovieReview(Document):
@@ -26,13 +40,30 @@ class MovieReview(Document):
 class TVShow(Document):
     meta = {
         'collection': 'shows',
-        'db_alias': 'default'
+        'db_alias': 'default',
+        'strict': False
     }
-    title = StringField(required=True)
-    genre = StringField()
-    language = StringField()
-    release_date = StringField()  # ✅ added for consistency
-    rating = FloatField(default=0.0)  # ✅ added for consistency
+    title           = StringField(required=True)
+    description     = StringField()
+    release_date    = DateTimeField()
+    genre           = StringField()
+    director        = StringField()
+    writer          = StringField()
+    cast            = ListField(StringField())
+    banner_url      = StringField()
+    poster_url      = StringField()
+    test_poster_url = StringField()
+    rating          = FloatField(default=0.0)
+    language        = StringField()
+    runtime         = IntField()
+    is_deleted      = BooleanField(default=False)
+    deleted_at      = DateTimeField()
+    created_at      = DateTimeField()
+    updated_at      = DateTimeField()
+    __v             = IntField()
+    trailer_url     = StringField()
+    season_year     = IntField()
+    season          = IntField()
 
 
 class ReviewShow(Document):

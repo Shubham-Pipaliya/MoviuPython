@@ -34,29 +34,54 @@ def get_review_shows_df():
 
 # --- Load movie metadata ---
 def get_movies_df():
-    movies = Movie.objects.only("id", "title", "genre", "language")
+    movies = Movie.objects  # load full docs
     return pd.DataFrame([{
-        "movie_id": str(m.id),
-        "title": m.title,
-        "release_date": m.release_date or "",  # ✅ added for consistency
-        "rating": m.rating or 0.0,  # ✅ added for consistency
-        "genre": m.genre or "",
-        "language": m.language or "",
-        "poster_url": f"https://d36dptol9hi920.cloudfront.net/movies/{slugify(m.title)}-poster.jpg"
+        "movie_id":        str(m.id),
+        "title":           m.title,
+        "description":     m.description or "",
+        "release_date":    m.release_date.isoformat() if m.release_date else "",
+        "rating":          m.rating or 0.0,
+        "genre":           m.genre or "",
+        "language":        m.language or "",
+        "banner_url":      m.banner_url,
+        "poster_url":      m.poster_url,
+        "test_poster_url": m.test_poster_url,
+        "cast":            m.cast or [],
+        "director":        m.director or "",
+        "writer":          m.writer or "",
+        "runtime":         m.runtime or 0,
+        "is_deleted":      m.is_deleted,
+        "deleted_at":      m.deleted_at.isoformat() if m.deleted_at else None,
+        "created_at":      m.created_at.isoformat() if m.created_at else None,
+        "updated_at":      m.updated_at.isoformat() if m.updated_at else None,
+        "__v":             m._data.get("__v", 0),
     } for m in movies])
+
 
 # --- Load show metadata ---
 def get_shows_df():
     shows = TVShow.objects.only("id", "title", "genre", "language")
-    return pd.DataFrame([{  
-        "show_id": str(s.id),
-        "title": s.title,
-        "release_date": s.release_date or "",  # ✅ added for consistency
-        "rating": s.rating or 0.0,  # ✅ added for consistency
-        "genre": s.genre or "",
-        "language": s.language or "",
-        "poster_url": f"https://d36dptol9hi920.cloudfront.net/shows/{slugify(s.title)}-poster.jpg"
-    } for s in shows])
+    return pd.DataFrame([{
+        "show_id":        str(m.id),
+        "title":           m.title,
+        "description":     m.description or "",
+        "release_date":    m.release_date.isoformat() if m.release_date else "",
+        "rating":          m.rating or 0.0,
+        "genre":           m.genre or "",
+        "language":        m.language or "",
+        "banner_url":      m.banner_url,
+        "poster_url":      m.poster_url,
+        "test_poster_url": m.test_poster_url,
+        "cast":            m.cast or [],
+        "director":        m.director or "",
+        "writer":          m.writer or "",
+        "runtime":         m.runtime or 0,
+        "is_deleted":      m.is_deleted,
+        "deleted_at":      m.deleted_at.isoformat() if m.deleted_at else None,
+        "created_at":      m.created_at.isoformat() if m.created_at else None,
+        "updated_at":      m.updated_at.isoformat() if m.updated_at else None,
+        "__v":             m._data.get("__v", 0),
+    } for m in shows])
 
 # --- Load followings ---
 def get_followings_df():

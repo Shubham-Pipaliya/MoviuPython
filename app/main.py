@@ -1,20 +1,19 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.encoders import jsonable_encoder
 from app import db
 from app.recommendation_model import load_model, get_top_n, predict_rating, get_fallback_movies_for_user, get_movie_genre_vectors
 from app.tv_show_recommender import load_show_model, get_top_n_shows, predict_show_rating, get_show_genre_vectors
-from app.models import Movie, TVShow, User, Genre
+from app.models import Movie, TVShow, User, Genre, MovieReview, ReviewShow
 from app.utils.mongo_data_loader import get_movies_df, get_shows_df, get_followings_df, get_reviews_df
+from app.utils.serializers import serialize_movies, serialize_shows
 from bson import ObjectId
-import redis
-import time
-from datetime import timedelta
-import os
 import pandas as pd
-from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
-from datetime import datetime
+from sklearn.metrics.pairwise import cosine_similarity
+from datetime import datetime, timedelta
+import os
 
 app = FastAPI(title="Recommendation API")
 
@@ -26,173 +25,105 @@ followings_df = get_followings_df()
 movies_df = get_movies_df()
 shows_df = get_shows_df()
 
-try:
-    movie_model, movie_data, movie_reviews_df = load_model()
-    show_model, show_data, show_reviews_df = load_show_model()
-except Exception as e:
-    print("Model loading failed:", e)
-    raise
-
-@app.get("/")
-def serve_home():
-    return FileResponse(os.path.join(STATIC_DIR, "index.html"))
-
-@app.get("/health")
-def health_check():
-    return {"message": "Welcome to the Movie & TV Show Recommendation API"}
+# Load models
+movie_model, movie_data, movie_reviews_df = load_model()
+show_model, show_data, show_reviews_df = load_show_model()
 
 @app.get("/home/sections")
 def get_home_sections(user_id: str = Query(...), language: str = Query("English")):
-    print("[DEBUG] using hybrid recommender for home/sections")
-
-    def get_user_genres(user_id: str):
-        try:
-            user = User.objects(id=ObjectId(user_id)).first()
-            if not user or not user.genres:
-                return []
-            genre_objs = Genre.objects(id__in=user.genres).only("name")
-            return [g.name for g in genre_objs if g.name]
-        except Exception:
+    # Helper: get user preferred genres
+    def get_user_genres(uid):
+        user = User.objects(id=ObjectId(uid)).first()
+        if not user or not user.genres:
             return []
+        genre_ids = [str(g) for g in user.genres]
+        return [g.name for g in Genre.objects(id__in=genre_ids).only("name")]
 
-    def get_default_vector(preferred_genres, vector_df):
-        default_vector = np.zeros((1, vector_df.shape[1]))
-        for genre in preferred_genres:
-            if genre in vector_df.columns:
-                idx = vector_df.columns.get_loc(genre)
-                default_vector[0][idx] = 1.0
-        return default_vector
-
-    def genre_based_recommendations(metas_df, vector_df):
-        preferred_genres = get_user_genres(user_id)
-        print("[✅] Mapped genre names:", preferred_genres)
-        if not preferred_genres:
+    # Genre-based fallback to get IDs
+    def genre_based_ids(meta_df, vector_df, key):
+        prefs = get_user_genres(user_id)
+        if not prefs:
             return []
-        default_vector = get_default_vector(preferred_genres, vector_df)
-        candidates = metas_df[metas_df["language"].str.lower() == language.lower()].copy()
-        candidate_ids = candidates["movie_id" if "movie_id" in candidates.columns else "show_id"].tolist()
-        candidate_vectors = vector_df.loc[vector_df.index.intersection(candidate_ids)]
-        if candidate_vectors.empty:
+        default_vec = np.zeros((1, vector_df.shape[1]))
+        for g in prefs:
+            if g in vector_df.columns:
+                default_vec[0, vector_df.columns.get_loc(g)] = 1.0
+        candidates = meta_df[meta_df["language"].str.lower() == language.lower()]
+        ids = candidates[key].tolist()
+        vecs = vector_df.loc[vector_df.index.intersection(ids)]
+        if vecs.empty:
             return []
-        similarities = cosine_similarity(default_vector, candidate_vectors.fillna(0).values)[0]
-        candidates["similarity"] = similarities
-        return (
-            candidates.sort_values("similarity", ascending=False)
-            .head(10)[[c for c in candidates.columns if c != "similarity"]]
-            .to_dict(orient="records")
-        )
+        sims = cosine_similarity(default_vec, vecs.fillna(0).values)[0]
+        ranked = vecs.assign(similarity=sims).sort_values("similarity", ascending=False)
+        return ranked.head(10).index.tolist()
 
+    # Generic fallback IDs
+    def fallback_ids(meta_df, key):
+        return meta_df[meta_df["language"].str.lower() == language.lower()][key].head(10).tolist()
 
-    def fallback_items(df, key="movie_id"):
-        return (
-            df[df["language"].str.lower() == language.lower()][[key, "title", "genre", "language", "poster_url"]]
-            .head(10)
-            .to_dict(orient="records")
-        )
-
+    # Movie Sections
     def get_recommended_movies():
-        top_n = get_top_n(
+        recs = get_top_n(
             movie_model, movie_data, movie_reviews_df,
-            n=10, hybrid=True,
-            language_filter=language,
+            n=10, hybrid=True, language_filter=language,
             metadata_df=movies_df
-        )
-        recs = top_n.get(user_id)
+        ).get(user_id, [])
         if recs:
-            movie_ids = [mid for mid, _ in recs]
-            return movies_df[movies_df["movie_id"].isin(movie_ids)][["movie_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
-        genre_based = genre_based_recommendations(movies_df, get_movie_genre_vectors())
-        return genre_based if genre_based else fallback_items(movies_df, key="movie_id")
+            ids = [mid for mid, _ in recs]
+        else:
+            ids = genre_based_ids(movies_df, get_movie_genre_vectors(), "movie_id")
+            if not ids:
+                ids = fallback_ids(movies_df, "movie_id")
+        return serialize_movies(ids)
 
     def get_recommended_shows():
-        top_n = get_top_n_shows(
+        recs = get_top_n_shows(
             show_model, show_data, show_reviews_df,
-            n=10, hybrid=True,
-            language_filter=language,
+            n=10, hybrid=True, language_filter=language,
             metadata_df=shows_df
-        )
-        recs = top_n.get(user_id)
+        ).get(user_id, [])
         if recs:
-            show_ids = [sid for sid in recs]
-            return shows_df[shows_df["show_id"].isin(show_ids)][["show_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
-        genre_based = genre_based_recommendations(shows_df, get_show_genre_vectors())
-        return genre_based if genre_based else fallback_items(shows_df, key="show_id")
+            ids = recs
+        else:
+            ids = genre_based_ids(shows_df, get_show_genre_vectors(), "show_id")
+            if not ids:
+                ids = fallback_ids(shows_df, "show_id")
+        return serialize_shows(ids)
 
     def get_must_watch():
-        agg = movie_reviews_df.groupby("movie").agg(avg_rating=("rating", "mean"), count=("rating", "count"))
-        filtered = agg[(agg["avg_rating"] >= 4.5) & (agg["count"] >= 3)].reset_index()
-        return movies_df[movies_df["movie_id"].isin(filtered["movie"])][
-            ["movie_id", "title", "genre", "language", "poster_url"]
-        ].to_dict(orient="records")
-
+        pipeline = [
+            {"$match": {"is_deleted": False}},
+            {"$group": {"_id": "$movie", "avgRating": {"$avg": "$rating"}, "reviewCount": {"$sum": 1}}},
+            {"$match": {"avgRating": {"$gte": 4.5}, "reviewCount": {"$gte": 3}}}
+        ]
+        stats = list(MovieReview.objects.aggregate(*pipeline))
+        ids = [s["_id"] for s in stats]
+        return serialize_movies(ids)
 
     def top_movies():
-        top_movies = movies_df.sort_values("rating", ascending=False).head(10)
-        return top_movies[["movie_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
+        ids = movies_df.sort_values("rating", ascending=False).head(10)["movie_id"].tolist()
+        return serialize_movies(ids)
 
     def top_shows():
-        top_shows = shows_df.sort_values("rating", ascending=False).head(10)
-        return top_shows[["show_id", "title", "genre", "language", "poster_url"]].to_dict(orient="records")
+        ids = shows_df.sort_values("rating", ascending=False).head(10)["show_id"].tolist()
+        return serialize_shows(ids)
 
     def coming_soon():
-        if "release_date" not in movies_df.columns:
-            print("[⚠] No 'release_date' column found in movies_df.")
-            return []
-        print(movies_df["release_date"].value_counts(dropna=False).head(10))
-        # Convert release_date to datetime
         df = movies_df.copy()
-        future_idx = movies_df.sample(10, random_state=42).index
-        # Inject release dates 5 to 60 days in the future
-        movies_df.loc[future_idx, "release_date"] = [
-            (datetime.now() + timedelta(days=i)).strftime("%Y-%m-%d")
-            for i in range(5, 65, 6)
-        ]
         df["release_date"] = pd.to_datetime(df["release_date"], errors="coerce")
-
-        # Filter upcoming releases
-        now = datetime.now()
-        upcoming = df[
-            (df["release_date"] > now) &
-            (df["language"].str.lower() == language.lower())
-        ].sort_values("release_date")
-
-        if upcoming.empty:
-            print("[ℹ] No upcoming movies found.")
-            return []
-
-        upcoming["poster_url"] = upcoming["poster_url"].fillna("https://example.com/default-poster.jpg")
-
-        return upcoming[["movie_id", "title", "genre", "language", "poster_url"]].head(10).to_dict(orient="records")
+        upcoming = df[(df["release_date"] > datetime.now()) & (df["language"].str.lower() == language.lower())]
+        ids = upcoming.sort_values("release_date").head(10)["movie_id"].tolist()
+        return serialize_movies(ids)
 
     def newly_launched():
-        # Placeholder for newly launched content
-        if "release_date" not in shows_df.columns:
-            print("[⚠] No 'release_date' column found in shows_df.")
-            return []
-        print(shows_df["release_date"].value_counts(dropna=False).head(10))
-        # Convert release_date to datetime
         df = shows_df.copy()
-        future_idx = shows_df.sample(10, random_state=42).index
-        # Inject release dates 5 to 60 days in the future
-        shows_df.loc[future_idx, "release_date"] = [
-            (datetime.now() + timedelta(days=i)).strftime("%Y-%m-%d")
-            for i in range(5, 65, 6)
-        ]
-        
         df["release_date"] = pd.to_datetime(df["release_date"], errors="coerce")
-        # Filter newly launched shows
-        now = datetime.now()
-        newly_launched = df[
-            (df["release_date"] > now) &
-            (df["language"].str.lower() == language.lower())
-        ].sort_values("release_date")
-        if newly_launched.empty:
-            print("[ℹ] No newly launched shows found.")
-            return []
-        newly_launched["poster_url"] = newly_launched["poster_url"].fillna("https://example.com/default-poster.jpg")
-        return newly_launched[["show_id", "title", "genre", "language", "poster_url"]].head(10).to_dict(orient="records")
+        recent = df[(df["release_date"] > datetime.now()) & (df["language"].str.lower() == language.lower())]
+        ids = recent.sort_values("release_date").head(10)["show_id"].tolist()
+        return serialize_shows(ids)
 
-    return {
+    # Build result
+    result = {
         "user_id": user_id,
         "trending_movies": get_recommended_movies(),
         "trending_shows": get_recommended_shows(),
@@ -200,6 +131,12 @@ def get_home_sections(user_id: str = Query(...), language: str = Query("English"
         "top_movies": top_movies(),
         "top_shows": top_shows(),
         "coming_soon": coming_soon(),
-        "newly_launched": newly_launched(),
-        "trending_trailers": []
+        "newly_launched": newly_launched()
     }
+
+    # Encode and return pure JSON with ObjectId → str
+    payload = jsonable_encoder(
+        result,
+        custom_encoder={ ObjectId: str }
+    )
+    return JSONResponse(content=payload)
