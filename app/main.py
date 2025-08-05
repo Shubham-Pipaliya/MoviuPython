@@ -29,6 +29,16 @@ shows_df = get_shows_df()
 movie_model, movie_data, movie_reviews_df = load_model()
 show_model, show_data, show_reviews_df = load_show_model()
 
+@app.get("/")
+def read_root():
+    index_path = os.path.join(STATIC_DIR, "index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
+
+@app.get("/health")
+def health_check(): 
+    return {"status": "ok"}
+
 @app.get("/home/sections")
 def get_home_sections(user_id: str = Query(...), language: str = Query("English")):
     # Helper: get user preferred genres
