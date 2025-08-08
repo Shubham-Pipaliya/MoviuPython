@@ -23,6 +23,7 @@ class Movie(Document):
     updated_at      = DateTimeField()
     __v             = IntField()
     trailer_url     = StringField()
+    now_streaming_on   = ListField(StringField())
 
 
 class MovieReview(Document):
@@ -62,6 +63,8 @@ class TVShow(Document):
     trailer_url     = StringField()
     season_year     = IntField()
     season          = IntField()
+    trailer_url     = StringField()
+    now_streaming_on   = ListField(StringField())
 
 
 class ReviewShow(Document):
